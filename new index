@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -120,22 +121,11 @@
                         <h3>ACADEMIC SUPPORT</h3>
 
                         <p>
-    <a href="https://savannahstate.edu/student-success/center-for-student-success/academic-support/" target="_blank">
-        Tutoring
-    </a><br>
-
-    <a href="https://savannahstate.edu/library/" target="_blank">
-        Library Resources
-    </a><br>
-
-    <a href="https://savannahstate.edu/academic-advising/" target="_blank">
-        Academic Advising
-    </a><br>
-
-    <a href="https://savannahstate.edu/student-success/" target="_blank">
-        Study Resources
-    </a>
-</p>
+                            Tutoring<br>
+                            Library Resources<br>
+                            Academic Advising<br>
+                            Study Resources
+                        </p>
 
                     </div>
 
