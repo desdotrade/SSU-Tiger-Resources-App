@@ -1,10 +1,10 @@
-/* =========================================
+/* =========================
    HAMBURGER MENU
-========================================= */
+========================= */
 
-const menuButton = document.getElementById("menuButton");
-const closeMenu = document.getElementById("closeMenu");
+const menuIcon = document.getElementById("menuIcon");
 const sideMenu = document.getElementById("sideMenu");
+const closeMenu = document.getElementById("closeMenu");
 const menuOverlay = document.getElementById("menuOverlay");
 
 function openMenu() {
@@ -12,38 +12,34 @@ function openMenu() {
     menuOverlay.classList.add("active");
 }
 
-function closeNavigation() {
+function closeSideMenu() {
     sideMenu.classList.remove("active");
     menuOverlay.classList.remove("active");
 }
 
-menuButton.addEventListener("click", openMenu);
+menuIcon.addEventListener("click", openMenu);
 
-closeMenu.addEventListener("click", closeNavigation);
+closeMenu.addEventListener("click", closeSideMenu);
 
-menuOverlay.addEventListener("click", closeNavigation);
+menuOverlay.addEventListener("click", closeSideMenu);
 
 
-/* Close menu after selecting a link */
+/* Close menu after clicking a link */
 
 const menuLinks = document.querySelectorAll(".side-menu a");
 
 menuLinks.forEach(function(link) {
-
-    link.addEventListener("click", function() {
-        closeNavigation();
-    });
-
+    link.addEventListener("click", closeSideMenu);
 });
 
 
-/* =========================================
+/* =========================
    RESOURCE SEARCH
-========================================= */
+========================= */
 
 const searchInput = document.getElementById("resourceSearch");
 const searchButton = document.getElementById("searchButton");
-const searchResults = document.getElementById("searchResults");
+const searchMessage = document.getElementById("searchMessage");
 
 const resourceItems = document.querySelectorAll(".resource-item");
 const resourceCategories = document.querySelectorAll(".resource-category");
@@ -51,81 +47,71 @@ const resourceCategories = document.querySelectorAll(".resource-category");
 
 function searchResources() {
 
-    const searchTerm =
-        searchInput.value
-            .toLowerCase()
-            .trim();
+    const searchTerm = searchInput.value
+        .toLowerCase()
+        .trim();
+
+    let foundResults = 0;
 
 
-    /* If search box is empty */
+    /* Show everything if search is empty */
 
     if (searchTerm === "") {
 
         resourceItems.forEach(function(item) {
-
             item.classList.remove("hidden");
-
         });
-
 
         resourceCategories.forEach(function(category) {
-
-            category.classList.remove("search-hidden");
-
+            category.classList.remove("hidden");
         });
 
-
-        searchResults.textContent = "";
+        searchMessage.textContent = "";
 
         return;
     }
 
 
-    let numberFound = 0;
+    /* Search each resource */
 
+    resourceItems.forEach(function(item) {
 
-    resourceCategories.forEach(function(category) {
+        const resourceText =
+            item.textContent.toLowerCase() +
+            " " +
+            item.dataset.resource.toLowerCase();
 
-        let categoryHasResult = false;
+        if (resourceText.includes(searchTerm)) {
 
-        const resources =
-            category.querySelectorAll(".resource-item");
+            item.classList.remove("hidden");
 
-
-        resources.forEach(function(resource) {
-
-            const searchableText =
-                (
-                    resource.innerText +
-                    " " +
-                    resource.dataset.resource
-                ).toLowerCase();
-
-
-            if (searchableText.includes(searchTerm)) {
-
-                resource.classList.remove("hidden");
-
-                categoryHasResult = true;
-
-                numberFound++;
-
-            } else {
-
-                resource.classList.add("hidden");
-
-            }
-
-        });
-
-
-        if (categoryHasResult) {
-
-            category.classList.remove("search-hidden");
+            foundResults++;
 
         } else {
 
-            category.classList.add("search-hidden");
+            item.classList.add("hidden");
+
+        }
+
+    });
+
+
+    /* Hide categories that have no results */
+
+    resourceCategories.forEach(function(category) {
+
+        const visibleResources =
+            category.querySelectorAll(
+                ".resource-item:not(.hidden)"
+            );
+
+        if (visibleResources.length === 0) {
+
+            category.classList.add("hidden");
+
+        } else {
+
+            category.classList.remove("hidden");
 
         }
 
@@ -134,17 +120,17 @@ function searchResources() {
 
     /* Search message */
 
-    if (numberFound === 0) {
+    if (foundResults === 0) {
 
-        searchResults.textContent =
+        searchMessage.textContent =
             "No resources found. Try another search.";
 
     } else {
 
-        searchResults.textContent =
-            numberFound +
+        searchMessage.textContent =
+            foundResults +
             " resource" +
-            (numberFound === 1 ? "" : "s") +
+            (foundResults === 1 ? "" : "s") +
             " found.";
 
     }
@@ -152,7 +138,7 @@ function searchResources() {
 }
 
 
-/* Search button */
+/* Search when button is clicked */
 
 searchButton.addEventListener(
     "click",
@@ -168,15 +154,106 @@ searchInput.addEventListener(
 );
 
 
-/* Press ENTER to search */
+/* Search when Enter is pressed */
 
 searchInput.addEventListener(
     "keydown",
     function(event) {
 
         if (event.key === "Enter") {
-
             searchResources();
+        }
+
+    }
+);
+
+
+/* =========================
+   SURVEY QR CODE MODAL
+========================= */
+
+const surveyButton =
+    document.getElementById("surveyButton");
+
+const surveyModal =
+    document.getElementById("surveyModal");
+
+const closeSurvey =
+    document.getElementById("closeSurvey");
+
+
+/* Open QR code */
+
+surveyButton.addEventListener(
+    "click",
+    function() {
+
+        surveyModal.classList.add("active");
+
+        surveyModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+    }
+);
+
+
+/* Close QR code */
+
+closeSurvey.addEventListener(
+    "click",
+    function() {
+
+        surveyModal.classList.remove("active");
+
+        surveyModal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+    }
+);
+
+
+/* Close by clicking outside the QR box */
+
+surveyModal.addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === surveyModal) {
+
+            surveyModal.classList.remove("active");
+
+            surveyModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+
+    }
+);
+
+
+/* Close QR modal with Escape */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            surveyModal.classList.contains("active")
+        ) {
+
+            surveyModal.classList.remove("active");
+
+            surveyModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
 
         }
 
