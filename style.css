@@ -1,42 +1,198 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+/* Base Reset and Typography */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* SSU Header Styling (Reflex Blue Base) */
+.ssu-header {
+    background-color: #002395; /* Official SSU Reflex Blue */
+    color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #ED7800; /* Official SSU Orange Accent */
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-area {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.logo-accent {
+    color: #ED7800; /* Orange Accent */
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ED7800;
+}
+
+/* Hero Banner with SSU Orange Gradient Overlay */
+.hero-banner {
+    background-image: url('https://unsplash.com');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,35,149,0.85) 0%, rgba(237,120,0,0.4) 100%);
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-overlay p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Resource Section */
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #002395;
+    font-size: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ED7800;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Modern Card Layout Grid */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .card {
-    background: #ffffff;
-    padding: 40px;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid #002395;
 }
 
-h1 {
-    color: #333333;
-    margin-bottom: 10px;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-p {
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    color: #002395;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.card-content p {
     color: #666666;
+    font-size: 0.95rem;
+    line-height: 1.6;
     margin-bottom: 20px;
+    height: 75px; /* Keeps layout grid structured neatly */
+    overflow: hidden;
 }
 
+/* SSU Colored Action Buttons */
 .btn {
-    display: inline-block;
-    background-color: #24292e;
+    display: block;
+    text-align: center;
+    padding: 11px 20px;
     color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
 }
 
-.btn:hover {
-    background-color: #444c56;
+.btn-blue {
+    background-color: #002395;
+}
+
+.btn-blue:hover {
+    background-color: #001866;
+}
+
+.btn-orange {
+    background-color: #ED7800;
+}
+
+.btn-orange:hover {
+    background-color: #c46300;
+}
+
+/* Footer Section */
+.ssu-footer {
+    background-color: #222222;
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 50px;
+    border-top: 4px solid #ED7800;
 }
