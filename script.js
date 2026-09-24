@@ -17,11 +17,17 @@ function closeSideMenu() {
     menuOverlay.classList.remove("active");
 }
 
-menuIcon.addEventListener("click", openMenu);
+if (menuIcon) {
+    menuIcon.addEventListener("click", openMenu);
+}
 
-closeMenu.addEventListener("click", closeSideMenu);
+if (closeMenu) {
+    closeMenu.addEventListener("click", closeSideMenu);
+}
 
-menuOverlay.addEventListener("click", closeSideMenu);
+if (menuOverlay) {
+    menuOverlay.addEventListener("click", closeSideMenu);
+}
 
 
 /* Close menu after clicking a link */
@@ -76,10 +82,15 @@ function searchResources() {
 
     resourceItems.forEach(function(item) {
 
+        const resourceData =
+            item.dataset.resource
+                ? item.dataset.resource.toLowerCase()
+                : "";
+
         const resourceText =
             item.textContent.toLowerCase() +
             " " +
-            item.dataset.resource.toLowerCase();
+            resourceData;
 
         if (resourceText.includes(searchTerm)) {
 
@@ -140,32 +151,38 @@ function searchResources() {
 
 /* Search when button is clicked */
 
-searchButton.addEventListener(
-    "click",
-    searchResources
-);
+if (searchButton) {
+    searchButton.addEventListener(
+        "click",
+        searchResources
+    );
+}
 
 
 /* Search while typing */
 
-searchInput.addEventListener(
-    "input",
-    searchResources
-);
+if (searchInput) {
+    searchInput.addEventListener(
+        "input",
+        searchResources
+    );
+}
 
 
 /* Search when Enter is pressed */
 
-searchInput.addEventListener(
-    "keydown",
-    function(event) {
+if (searchInput) {
+    searchInput.addEventListener(
+        "keydown",
+        function(event) {
 
-        if (event.key === "Enter") {
-            searchResources();
+            if (event.key === "Enter") {
+                searchResources();
+            }
+
         }
-
-    }
-);
+    );
+}
 
 
 /* =========================
@@ -184,45 +201,32 @@ const closeSurvey =
 
 /* Open QR code */
 
-surveyButton.addEventListener(
-    "click",
-    function() {
+if (surveyButton && surveyModal) {
 
-        surveyModal.classList.add("active");
+    surveyButton.addEventListener(
+        "click",
+        function() {
 
-        surveyModal.setAttribute(
-            "aria-hidden",
-            "false"
-        );
+            surveyModal.classList.add("active");
 
-    }
-);
+            surveyModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+        }
+    );
+
+}
 
 
 /* Close QR code */
 
-closeSurvey.addEventListener(
-    "click",
-    function() {
+if (closeSurvey && surveyModal) {
 
-        surveyModal.classList.remove("active");
-
-        surveyModal.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-    }
-);
-
-
-/* Close by clicking outside the QR box */
-
-surveyModal.addEventListener(
-    "click",
-    function(event) {
-
-        if (event.target === surveyModal) {
+    closeSurvey.addEventListener(
+        "click",
+        function() {
 
             surveyModal.classList.remove("active");
 
@@ -232,9 +236,34 @@ surveyModal.addEventListener(
             );
 
         }
+    );
 
-    }
-);
+}
+
+
+/* Close by clicking outside the QR box */
+
+if (surveyModal) {
+
+    surveyModal.addEventListener(
+        "click",
+        function(event) {
+
+            if (event.target === surveyModal) {
+
+                surveyModal.classList.remove("active");
+
+                surveyModal.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+            }
+
+        }
+    );
+
+}
 
 
 /* Close QR modal with Escape */
@@ -245,6 +274,7 @@ document.addEventListener(
 
         if (
             event.key === "Escape" &&
+            surveyModal &&
             surveyModal.classList.contains("active")
         ) {
 
