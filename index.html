@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SSU Student Resource Hub</title>
+    <title>Savannah State University | Student Resource Hub</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,58 +13,51 @@
 <body>
 
     <!-- =========================
-         NAVIGATION
+         SIDE MENU
     ========================== -->
+    <div class="menu-icon" id="menuIcon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
+    <nav class="side-menu" id="sideMenu">
+        <button class="close-menu" id="closeMenu">&times;</button>
+
+        <h2>Student Resources</h2>
+
+        <a href="#academic">Academic</a>
+        <a href="#financial">Financial</a>
+        <a href="#career">Career</a>
+        <a href="#support">Student Support</a>
+        <a href="#campus-life">Campus Life</a>
+        <a href="#technology">Technology / IT</a>
+        <a href="#survey">Student Survey</a>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
     <header class="hero-section">
 
-        <button class="menu-button" id="menuButton" aria-label="Open navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="hero-overlay"></div>
 
-        <nav class="side-menu" id="sideMenu">
+        <div class="hero-content">
 
-            <div class="menu-header">
-                <h3>SSU RESOURCE HUB</h3>
-
-                <button id="closeMenu" aria-label="Close menu">
-                    &times;
-                </button>
-            </div>
-
-            <a href="#home">Home</a>
-            <a href="#resources">Resources</a>
-            <a href="#academic">Academic</a>
-            <a href="#financial">Financial</a>
-            <a href="#career">Career</a>
-            <a href="#student-support">Student Support</a>
-            <a href="#campus-life">Campus Life</a>
-            <a href="#technology">Technology</a>
-            <a href="#survey">Student Survey</a>
-            <a href="#location">Location</a>
-
-        </nav>
-
-        <div class="menu-overlay" id="menuOverlay"></div>
-
-
-        <!-- HERO -->
-
-        <div class="hero-content" id="home">
-
-            <p class="hero-small">SAVANNAH STATE UNIVERSITY</p>
+            <p class="school-name">SAVANNAH STATE UNIVERSITY</p>
 
             <h1>Student Resource Hub</h1>
 
-            <p>
-                Find important student resources, services,
-                campus information, and support all in one place.
+            <p class="hero-text">
+                Your central place to find important Savannah State
+                University student resources.
             </p>
 
-            <a href="#resources" class="hero-btn">
-                EXPLORE RESOURCES
+            <a href="#search-box" class="hero-button">
+                FIND A RESOURCE
             </a>
 
         </div>
@@ -75,25 +68,24 @@
     <!-- =========================
          SEARCH
     ========================== -->
+    <section class="search-section" id="search-box">
 
-    <section class="search-section">
-
-        <div class="search-container">
+        <div class="section-container">
 
             <h2>Find a Resource</h2>
 
             <p>
-                Search for tutoring, financial aid, career services,
-                Wi-Fi, counseling, organizations, and more.
+                Search for academic, financial, career, campus,
+                technology, and student support resources.
             </p>
 
-            <div class="search-bar">
+            <div class="search-container">
 
                 <input
                     type="text"
                     id="resourceSearch"
-                    placeholder="Search resources..."
-                    autocomplete="off"
+                    placeholder="Search for a resource..."
+                    aria-label="Search for a student resource"
                 >
 
                 <button type="button" id="searchButton">
@@ -102,7 +94,7 @@
 
             </div>
 
-            <p id="searchResults" class="search-results"></p>
+            <p id="searchMessage" class="search-message"></p>
 
         </div>
 
@@ -110,956 +102,741 @@
 
 
     <!-- =========================
-         MAIN RESOURCES
+         RESOURCE CATEGORIES
     ========================== -->
-
-    <main id="resources">
-
-
-        <!-- CATEGORY CARDS -->
+    <main>
 
         <section class="resources-section">
 
-            <div class="section-header">
+            <div class="section-container">
 
-                <h2>Student Resources</h2>
-
-                <p>
-                    Select a category or search above to find the
-                    information you need.
-                </p>
-
-            </div>
-
-
-            <div class="category-grid">
-
-
-                <a href="#academic" class="category-card academic-card">
-
-                    <div class="category-icon">📚</div>
-
-                    <h3>Academic</h3>
-
+                <div class="section-heading">
+                    <p class="small-heading">EXPLORE</p>
+                    <h2>Student Resources</h2>
                     <p>
-                        Tutoring, advising, registration,
-                        library resources, and academic deadlines.
+                        Select a category below to quickly find the
+                        information and services you need.
                     </p>
-
-                    <span>View Resources →</span>
-
-                </a>
+                </div>
 
 
-                <a href="#financial" class="category-card financial-card">
+                <!-- CATEGORY CARDS -->
+                <div class="category-grid">
 
-                    <div class="category-icon">💰</div>
-
-                    <h3>Financial</h3>
-
-                    <p>
-                        Financial aid, FAFSA, scholarships,
-                        billing, and emergency financial resources.
-                    </p>
-
-                    <span>View Resources →</span>
-
-                </a>
+                    <a href="#academic" class="category-card">
+                        <div class="category-icon">📚</div>
+                        <h3>Academic</h3>
+                        <p>
+                            Tutoring, advising, registrar,
+                            library, and academic deadlines.
+                        </p>
+                    </a>
 
 
-                <a href="#career" class="category-card career-card">
-
-                    <div class="category-icon">💼</div>
-
-                    <h3>Career</h3>
-
-                    <p>
-                        Career services, internships, resumes,
-                        job opportunities, and interview preparation.
-                    </p>
-
-                    <span>View Resources →</span>
-
-                </a>
+                    <a href="#financial" class="category-card">
+                        <div class="category-icon">💰</div>
+                        <h3>Financial</h3>
+                        <p>
+                            Financial aid, scholarships,
+                            FAFSA, and billing resources.
+                        </p>
+                    </a>
 
 
-                <a href="#student-support" class="category-card support-card">
-
-                    <div class="category-icon">🤝</div>
-
-                    <h3>Student Support</h3>
-
-                    <p>
-                        Counseling, wellness, transportation,
-                        student organizations, and campus services.
-                    </p>
-
-                    <span>View Resources →</span>
-
-                </a>
+                    <a href="#career" class="category-card">
+                        <div class="category-icon">💼</div>
+                        <h3>Career</h3>
+                        <p>
+                            Career services, internships,
+                            resumes, jobs, and interviews.
+                        </p>
+                    </a>
 
 
-                <a href="#campus-life" class="category-card campus-card">
-
-                    <div class="category-icon">🏫</div>
-
-                    <h3>Campus Life</h3>
-
-                    <p>
-                        Clubs, organizations, events, activities,
-                        and important campus locations.
-                    </p>
-
-                    <span>View Resources →</span>
-
-                </a>
+                    <a href="#support" class="category-card">
+                        <div class="category-icon">🤝</div>
+                        <h3>Student Support</h3>
+                        <p>
+                            Wellness, student organizations,
+                            transportation, and support services.
+                        </p>
+                    </a>
 
 
-                <a href="#technology" class="category-card technology-card">
+                    <a href="#campus-life" class="category-card">
+                        <div class="category-icon">🏫</div>
+                        <h3>Campus Life</h3>
+                        <p>
+                            Clubs, organizations, events,
+                            activities, and campus locations.
+                        </p>
+                    </a>
 
-                    <div class="category-icon">💻</div>
 
-                    <h3>Technology</h3>
+                    <a href="#technology" class="category-card">
+                        <div class="category-icon">💻</div>
+                        <h3>Technology / IT</h3>
+                        <p>
+                            Wi-Fi, technology resources,
+                            and IT assistance.
+                        </p>
+                    </a>
 
-                    <p>
-                        Wi-Fi, IT support, student technology,
-                        and campus technology resources.
-                    </p>
-
-                    <span>View Resources →</span>
-
-                </a>
+                </div>
 
             </div>
 
         </section>
-
 
 
         <!-- =========================
              ACADEMIC
         ========================== -->
-
         <section class="resource-category" id="academic">
 
-            <div class="category-title">
+            <div class="section-container">
 
-                <span>📚</span>
+                <div class="category-title">
+                    <span>01</span>
+                    <div>
+                        <p class="small-heading">ACADEMIC</p>
+                        <h2>Academic Resources</h2>
+                    </div>
+                </div>
 
-                <div>
-                    <h2>Academic Resources</h2>
 
-                    <p>
-                        Resources to help students succeed academically.
-                    </p>
+                <div class="resource-grid">
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="academic support tutoring center for student success tutoring"
+                    >
+
+                        <h3>Academic Support</h3>
+
+                        <p>
+                            Academic support services designed to help
+                            students succeed in their coursework.
+                        </p>
+
+                        <div class="resource-info">
+                            <strong>Contact:</strong>
+                            Center for Student Success
+                        </div>
+
+                        <a
+                            href="https://savannahstate.edu/student-success/center-for-student-success/academic-support/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT OFFICIAL RESOURCE →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="center student success academic advising tutoring"
+                    >
+
+                        <h3>Center for Student Success</h3>
+
+                        <p>
+                            Access academic advising, student success
+                            programs, and other academic support.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/student-success/center-for-student-success/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT OFFICIAL RESOURCE →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="registrar registration records transcripts forms"
+                    >
+
+                        <h3>Registrar</h3>
+
+                        <p>
+                            Find information about registration,
+                            transcripts, records, and registrar services.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/registrar/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT REGISTRAR →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="library books research academic library"
+                    >
+
+                        <h3>University Library</h3>
+
+                        <p>
+                            Access library services, research materials,
+                            databases, and academic resources.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/library/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT LIBRARY →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="academic calendar deadlines important dates"
+                    >
+
+                        <h3>Academic Calendars</h3>
+
+                        <p>
+                            View important academic dates, deadlines,
+                            registration periods, and semester schedules.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/academic-affairs/calendars/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VIEW CALENDARS →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="registrar forms academic forms"
+                    >
+
+                        <h3>Registrar Forms</h3>
+
+                        <p>
+                            Access commonly used forms related to
+                            registration and academic records.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/registrar/forms/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VIEW FORMS →
+                        </a>
+
+                    </article>
+
                 </div>
 
             </div>
 
-
-            <div class="resource-grid">
-
-
-                <article class="resource-item"
-                    data-resource="tutoring academic support">
-
-                    <h3>Tutoring & Academic Support</h3>
-
-                    <p>
-                        Get tutoring, academic advising, testing,
-                        mentoring, and other academic support.
-                    </p>
-
-                    <div class="resource-info">
-
-                        <strong>Location:</strong>
-                        Morgan Hall / Center for Student Success
-
-                        <br>
-
-                        <strong>Phone:</strong>
-                        912-358-3488
-
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/student-success/center-for-student-success/academic-support/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Resource →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="academic advising advisor">
-
-                    <h3>Academic Advising</h3>
-
-                    <p>
-                        Get help with course selection, degree requirements,
-                        academic planning, and graduation preparation.
-                    </p>
-
-                    <div class="resource-info">
-
-                        <strong>Location:</strong>
-                        Center for Student Success
-
-                        <br>
-
-                        <strong>Phone:</strong>
-                        912-358-3488
-
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/student-success/center-for-student-success/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Resource →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="registrar registration classes transcripts">
-
-                    <h3>Registrar</h3>
-
-                    <p>
-                        Find information about registration, transcripts,
-                        Degree Works, class schedules, and academic forms.
-                    </p>
-
-                    <div class="resource-info">
-
-                        <strong>Phone:</strong>
-                        912-358-4162 Option 3
-
-                        <br>
-
-                        <strong>Hours:</strong>
-                        Monday–Friday, 8 AM–5 PM
-
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/registrar/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Resource →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="library research books study">
-
-                    <h3>Asa H. Gordon Library</h3>
-
-                    <p>
-                        Access research resources, study spaces,
-                        workshops, librarians, and academic support.
-                    </p>
-
-                    <div class="resource-info">
-
-                        <strong>Location:</strong>
-                        3219 College Street
-
-                        <br>
-
-                        <strong>Phone:</strong>
-                        912-358-4337
-
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/library/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Resource →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="academic deadlines calendar important dates">
-
-                    <h3>Academic Calendar & Deadlines</h3>
-
-                    <p>
-                        Find important academic dates including
-                        registration, exams, breaks, and deadlines.
-                    </p>
-
-                    <div class="resource-info">
-                        Official university academic calendars.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/academic-affairs/calendars/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Calendar →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="registrar forms">
-
-                    <h3>Registrar Forms</h3>
-
-                    <p>
-                        Access major change, minor, withdrawal,
-                        registration, transcript, and other forms.
-                    </p>
-
-                    <div class="resource-info">
-                        Registrar's Office online forms.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/registrar/forms/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Forms →
-                    </a>
-
-                </article>
-
-            </div>
-
         </section>
-
 
 
         <!-- =========================
              FINANCIAL
         ========================== -->
+        <section class="resource-category alternate" id="financial">
 
-        <section class="resource-category" id="financial">
+            <div class="section-container">
 
-            <div class="category-title">
+                <div class="category-title">
+                    <span>02</span>
+                    <div>
+                        <p class="small-heading">FINANCIAL</p>
+                        <h2>Financial Resources</h2>
+                    </div>
+                </div>
 
-                <span>💰</span>
 
-                <div>
-                    <h2>Financial Resources</h2>
+                <div class="resource-grid">
 
-                    <p>
-                        Financial aid, scholarships, billing, and funding information.
-                    </p>
+                    <article
+                        class="resource-item"
+                        data-resource="financial aid FAFSA grants loans student aid"
+                    >
+
+                        <h3>Financial Aid</h3>
+
+                        <p>
+                            Find information about financial aid,
+                            grants, loans, and student assistance.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/financial-aid/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT FINANCIAL AID →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="scholarships financial scholarships money"
+                    >
+
+                        <h3>Scholarships</h3>
+
+                        <p>
+                            Explore scholarship information and
+                            opportunities available to students.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/financial-aid/types-of-aid/scholarships/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VIEW SCHOLARSHIPS →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="bursar billing tuition payment account"
+                    >
+
+                        <h3>Bursar</h3>
+
+                        <p>
+                            Find information about student accounts,
+                            billing, tuition, and payments.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/bursar/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT BURSAR →
+                        </a>
+
+                    </article>
+
                 </div>
 
             </div>
 
-
-            <div class="resource-grid">
-
-
-                <article class="resource-item"
-                    data-resource="financial aid money funding FAFSA">
-
-                    <h3>Financial Aid</h3>
-
-                    <p>
-                        Learn about financial aid programs,
-                        eligibility, FAFSA, grants, and loans.
-                    </p>
-
-                    <div class="resource-info">
-
-                        <strong>Phone:</strong>
-                        912-358-4162 Option 6
-
-                        <br>
-
-                        <strong>Hours:</strong>
-                        Monday–Friday, 8 AM–5 PM
-
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/financial-aid/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Financial Aid →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="FAFSA federal student aid">
-
-                    <h3>FAFSA Information</h3>
-
-                    <p>
-                        Find information about completing the FAFSA
-                        and applying for federal student aid.
-                    </p>
-
-                    <div class="resource-info">
-                        SSU FAFSA school code: 001590
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/financial-aid/"
-                        target="_blank"
-                        class="resource-link">
-                        FAFSA Information →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="scholarships scholarship money">
-
-                    <h3>Scholarships</h3>
-
-                    <p>
-                        Explore internal, external, HOPE, Zell Miller,
-                        and other scholarship opportunities.
-                    </p>
-
-                    <div class="resource-info">
-                        ScholarshipUniverse is available to current students.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/financial-aid/types-of-aid/scholarships/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Scholarships →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="billing bursar tuition payment">
-
-                    <h3>Billing & Student Accounts</h3>
-
-                    <p>
-                        Access information about tuition, fees,
-                        payments, refunds, and student accounts.
-                    </p>
-
-                    <div class="resource-info">
-
-                        <strong>Phone:</strong>
-                        912-358-4042
-
-                        <br>
-
-                        <strong>Location:</strong>
-                        Colston Administration Building
-
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/bursar/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Bursar →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="emergency financial resources help">
-
-                    <h3>Emergency Financial Resources</h3>
-
-                    <p>
-                        Find university financial aid and funding
-                        information that may help with unexpected expenses.
-                    </p>
-
-                    <div class="resource-info">
-                        Review available financial aid and scholarship resources.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/financial-aid/"
-                        target="_blank"
-                        class="resource-link">
-                        Financial Aid Resources →
-                    </a>
-
-                </article>
-
-            </div>
-
         </section>
-
 
 
         <!-- =========================
              CAREER
         ========================== -->
-
         <section class="resource-category" id="career">
 
-            <div class="category-title">
+            <div class="section-container">
 
-                <span>💼</span>
+                <div class="category-title">
+                    <span>03</span>
+                    <div>
+                        <p class="small-heading">CAREER</p>
+                        <h2>Career Resources</h2>
+                    </div>
+                </div>
 
-                <div>
-                    <h2>Career Resources</h2>
 
-                    <p>
-                        Prepare for internships, jobs, graduate school,
-                        and professional opportunities.
-                    </p>
+                <div class="resource-grid">
+
+                    <article
+                        class="resource-item"
+                        data-resource="career services jobs employment internships resume interview"
+                    >
+
+                        <h3>Career Services</h3>
+
+                        <p>
+                            Get career guidance, job preparation,
+                            internship assistance, and professional development.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/career-services/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT CAREER SERVICES →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="resume interview preparation career jobs"
+                    >
+
+                        <h3>Resume & Interview Preparation</h3>
+
+                        <p>
+                            Prepare for internships, jobs, interviews,
+                            and professional opportunities.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/career-services/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            GET CAREER HELP →
+                        </a>
+
+                    </article>
+
                 </div>
 
             </div>
 
-
-            <div class="resource-grid">
-
-
-                <article class="resource-item"
-                    data-resource="career services jobs career counseling">
-
-                    <h3>Career Services</h3>
-
-                    <p>
-                        Get career counseling, professional preparation,
-                        networking, internship, and employment support.
-                    </p>
-
-                    <div class="resource-info">
-                        Career Services & Leadership Development Center
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/career-services/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Career Services →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="resume resume resources career">
-
-                    <h3>Resume & Professional Preparation</h3>
-
-                    <p>
-                        Access career preparation resources and professional
-                        development through SSU Career Services.
-                    </p>
-
-                    <div class="resource-info">
-                        Career Services provides professional preparation counseling.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/career-services/"
-                        target="_blank"
-                        class="resource-link">
-                        Career Preparation →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="internship internships coop cooperative education">
-
-                    <h3>Internship & Cooperative Education</h3>
-
-                    <p>
-                        Find internship, cooperative education,
-                        and work-based learning opportunities.
-                    </p>
-
-                    <div class="resource-info">
-                        SSU Career Services provides access to work-based learning.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/career-services/"
-                        target="_blank"
-                        class="resource-link">
-                        Internship Resources →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="jobs job board handshake">
-
-                    <h3>Job Opportunities</h3>
-
-                    <p>
-                        Use SSU's career portal to find jobs,
-                        internships, micro-internships, and co-ops.
-                    </p>
-
-                    <div class="resource-info">
-                        SSU uses Handshake as its primary career portal.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/career-services/"
-                        target="_blank"
-                        class="resource-link">
-                        Career Portal →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="interview preparation career">
-
-                    <h3>Interview Preparation</h3>
-
-                    <p>
-                        Prepare for employment and professional opportunities
-                        through SSU Career Services.
-                    </p>
-
-                    <div class="resource-info">
-                        Career preparation counseling is available to students and alumni.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/career-services/"
-                        target="_blank"
-                        class="resource-link">
-                        Career Services →
-                    </a>
-
-                </article>
-
-            </div>
-
         </section>
-
 
 
         <!-- =========================
              STUDENT SUPPORT
         ========================== -->
+        <section class="resource-category alternate" id="support">
 
-        <section class="resource-category" id="student-support">
+            <div class="section-container">
 
-            <div class="category-title">
+                <div class="category-title">
+                    <span>04</span>
+                    <div>
+                        <p class="small-heading">STUDENT SUPPORT</p>
+                        <h2>Student Support</h2>
+                    </div>
+                </div>
 
-                <span>🤝</span>
 
-                <div>
-                    <h2>Student Support</h2>
+                <div class="resource-grid">
 
-                    <p>
-                        Support services that help students with their
-                        personal, social, and campus experience.
-                    </p>
+                    <article
+                        class="resource-item"
+                        data-resource="student organizations clubs support activities"
+                    >
+
+                        <h3>Student Organizations</h3>
+
+                        <p>
+                            Discover student organizations and opportunities
+                            to get involved on campus.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/campus-life/clubs-organizations/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VIEW ORGANIZATIONS →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="student affairs programs organizations support campus"
+                    >
+
+                        <h3>Student Affairs</h3>
+
+                        <p>
+                            Find programs, organizations, and services
+                            supporting student life and engagement.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/student-affairs/programs-organizations/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT STUDENT AFFAIRS →
+                        </a>
+
+                    </article>
+
                 </div>
 
             </div>
 
-
-            <div class="resource-grid">
-
-
-                <article class="resource-item"
-                    data-resource="counseling mental wellness psychological">
-
-                    <h3>Counseling & Wellness</h3>
-
-                    <p>
-                        Connect with Student Counseling & Psychological
-                        Services for confidential support.
-                    </p>
-
-                    <div class="resource-info">
-                        Phone: 912-358-3080
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/student-affairs/programs-organizations/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Student Support →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="student organizations clubs">
-
-                    <h3>Student Organizations</h3>
-
-                    <p>
-                        Explore clubs and organizations and get involved
-                        with the Savannah State community.
-                    </p>
-
-                    <div class="resource-info">
-                        SSU has numerous student organizations across campus.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/campus-life/clubs-organizations/"
-                        target="_blank"
-                        class="resource-link">
-                        Clubs & Organizations →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="transportation parking">
-
-                    <h3>Transportation & Parking</h3>
-
-                    <p>
-                        Find information about parking and transportation
-                        resources available to students.
-                    </p>
-
-                    <div class="resource-info">
-                        Transportation information is available through Student Affairs.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/student-affairs/programs-organizations/"
-                        target="_blank"
-                        class="resource-link">
-                        Student Affairs Resources →
-                    </a>
-
-                </article>
-
-            </div>
-
         </section>
-
 
 
         <!-- =========================
              CAMPUS LIFE
         ========================== -->
-
         <section class="resource-category" id="campus-life">
 
-            <div class="category-title">
+            <div class="section-container">
 
-                <span>🏫</span>
-
-                <div>
-                    <h2>Campus Life</h2>
-
-                    <p>
-                        Discover events, organizations, activities,
-                        and important campus information.
-                    </p>
+                <div class="category-title">
+                    <span>05</span>
+                    <div>
+                        <p class="small-heading">CAMPUS LIFE</p>
+                        <h2>Campus Life</h2>
+                    </div>
                 </div>
 
-            </div>
+
+                <div class="resource-grid">
+
+                    <article
+                        class="resource-item"
+                        data-resource="clubs organizations campus life student activities"
+                    >
+
+                        <h3>Clubs & Organizations</h3>
+
+                        <p>
+                            Connect with campus organizations and
+                            find ways to become involved.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/campus-life/clubs-organizations/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            EXPLORE CLUBS →
+                        </a>
+
+                    </article>
 
 
-            <div class="resource-grid">
+                    <article
+                        class="resource-item"
+                        data-resource="events campus calendar activities events"
+                    >
 
+                        <h3>Campus Events</h3>
 
-                <article class="resource-item"
-                    data-resource="clubs organizations campus life">
+                        <p>
+                            Find upcoming Savannah State University
+                            events and activities.
+                        </p>
 
-                    <h3>Clubs & Organizations</h3>
+                        <a
+                            href="https://savannahstate.edu/events/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VIEW EVENTS →
+                        </a>
 
-                    <p>
-                        Discover student organizations and ways to
-                        become involved on campus.
-                    </p>
+                    </article>
 
-                    <a
-                        href="https://savannahstate.edu/campus-life/clubs-organizations/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Organizations →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="events calendar activities">
-
-                    <h3>Campus Events</h3>
-
-                    <p>
-                        Find upcoming Savannah State events,
-                        activities, and programs.
-                    </p>
-
-                    <a
-                        href="https://savannahstate.edu/events/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Events →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="campus locations map">
-
-                    <h3>Campus Map & Locations</h3>
-
-                    <p>
-                        Find important campus locations and
-                        plan your visit to Savannah State.
-                    </p>
-
-                    <a
-                        href="https://savannahstate.edu/campus-life/"
-                        target="_blank"
-                        class="resource-link">
-                        Campus Information →
-                    </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="student activities campus">
-
-                    <h3>Student Activities</h3>
-
-                    <p>
-                        Explore programs, organizations, activities,
-                        and opportunities to get involved.
-                    </p>
-
-                    <a
-                        href="https://savannahstate.edu/student-affairs/programs-organizations/"
-                        target="_blank"
-                        class="resource-link">
-                        Student Activities →
-                    </a>
-
-                </article>
+                </div>
 
             </div>
 
         </section>
 
 
-
         <!-- =========================
              TECHNOLOGY
         ========================== -->
+        <section class="resource-category alternate" id="technology">
 
-        <section class="resource-category" id="technology">
+            <div class="section-container">
 
-            <div class="category-title">
+                <div class="category-title">
+                    <span>06</span>
+                    <div>
+                        <p class="small-heading">TECHNOLOGY / IT</p>
+                        <h2>Technology Resources</h2>
+                    </div>
+                </div>
 
-                <span>💻</span>
 
-                <div>
-                    <h2>Technology Resources</h2>
+                <div class="resource-grid">
 
-                    <p>
-                        Technology and IT resources for Savannah State students.
-                    </p>
+                    <article
+                        class="resource-item"
+                        data-resource="technology IT wifi wi-fi computer technology"
+                    >
+
+                        <h3>Student Technology Resources</h3>
+
+                        <p>
+                            Find Savannah State technology information
+                            and student technology services.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT SSU WEBSITE →
+                        </a>
+
+                    </article>
+
+
+                    <article
+                        class="resource-item"
+                        data-resource="wifi internet technology IT campus"
+                    >
+
+                        <h3>Campus Wi-Fi & Internet</h3>
+
+                        <p>
+                            Access university technology information
+                            and resources for staying connected on campus.
+                        </p>
+
+                        <a
+                            href="https://savannahstate.edu/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="resource-link"
+                        >
+                            VISIT SSU WEBSITE →
+                        </a>
+
+                    </article>
+
                 </div>
 
             </div>
 
-
-            <div class="resource-grid">
-
-
-                <article class="resource-item"
-                    data-resource="wifi wi-fi internet network">
-
-                    <h3>Campus Wi-Fi</h3>
-
-                    <p>
-                        Access Savannah State's student technology
-                        and network resources.
-                    </p>
-
-                    <div class="resource-info">
-                        Use the official SSU technology resources for
-                        network and account assistance.
-                    </div>
-
-                    <a
-                        href="https://savannahstate.edu/"
-                        target="_blank"
-                        class="resource-link">
-                        Official SSU Website →
-                    </a>
-
-                </article>
+        </section>
 
 
-                <article class="resource-item"
-                    data-resource="IT technology computer help">
+        <!-- =========================
+             QUICK ACCESS
+        ========================== -->
+        <section class="quick-section">
 
-                    <h3>IT / Technology Support</h3>
+            <div class="section-container">
 
-                    <p>
-                        Find university technology resources,
-                        student systems, and technology assistance.
-                    </p>
+                <div class="section-heading">
+                    <p class="small-heading">QUICK ACCESS</p>
+                    <h2>Frequently Used Resources</h2>
+                </div>
 
-                    <div class="resource-info">
-                        Technology resources can be accessed through SSU's
-                        Current Student resources.
-                    </div>
+
+                <div class="quick-grid">
 
                     <a
-                        href="https://savannahstate.edu/"
+                        href="https://savannahstate.edu/registrar/"
                         target="_blank"
-                        class="resource-link">
-                        Official SSU Website →
+                        rel="noopener noreferrer"
+                    >
+                        Registrar
                     </a>
-
-                </article>
-
-
-                <article class="resource-item"
-                    data-resource="student portal PAWS D2L email">
-
-                    <h3>Student Technology Systems</h3>
-
-                    <p>
-                        Quickly access important student systems
-                        such as PAWS, D2L, and student email.
-                    </p>
 
                     <a
-                        href="https://savannahstate.edu/"
+                        href="https://savannahstate.edu/financial-aid/"
                         target="_blank"
-                        class="resource-link">
-                        Official SSU Website →
+                        rel="noopener noreferrer"
+                    >
+                        Financial Aid
                     </a>
 
-                </article>
+                    <a
+                        href="https://savannahstate.edu/career-services/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Career Services
+                    </a>
+
+                    <a
+                        href="https://savannahstate.edu/library/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Library
+                    </a>
+
+                    <a
+                        href="https://savannahstate.edu/events/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Events
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SURVEY
+        ========================== -->
+        <section class="survey-section" id="survey">
+
+            <div class="section-container">
+
+                <div class="survey-box">
+
+                    <p class="small-heading">HELP US IMPROVE</p>
+
+                    <h2>Student Feedback</h2>
+
+                    <p>
+                        Your feedback helps us improve the Savannah State
+                        Student Resource Hub and make resources easier
+                        for students to find.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="survey-btn"
+                        id="surveyButton"
+                    >
+                        TAKE THE SURVEY
+                    </button>
+
+                </div>
 
             </div>
 
@@ -1069,171 +846,75 @@
     </main>
 
 
-
     <!-- =========================
-         ADDITIONAL QUICK LINKS
+         SURVEY QR MODAL
     ========================== -->
+    <div
+        class="survey-modal"
+        id="surveyModal"
+        aria-hidden="true"
+    >
 
-    <section class="additional-section">
+        <div class="survey-modal-content">
 
-        <div class="section-header">
+            <button
+                type="button"
+                class="close-survey"
+                id="closeSurvey"
+                aria-label="Close survey"
+            >
+                &times;
+            </button>
 
-            <h2>Quick Access</h2>
+            <p class="small-heading">STUDENT SURVEY</p>
+
+            <h2>Scan to Take the Survey</h2>
 
             <p>
-                Frequently needed Savannah State information.
+                Use your phone's camera to scan the QR code
+                and complete the student survey.
+            </p>
+
+            <img
+                src="images/student-survey-qr.png"
+                alt="QR code for the Savannah State Student Resource Hub student survey"
+                class="survey-qr"
+            >
+
+            <p class="survey-instruction">
+                Thank you for helping us improve the Student Resource Hub!
             </p>
 
         </div>
 
-
-        <div class="quick-grid">
-
-            <a
-                href="https://savannahstate.edu/academic-affairs/calendars/"
-                target="_blank"
-                class="quick-card">
-
-                <span>📅</span>
-
-                <h3>Academic Calendar</h3>
-
-                <p>Important academic dates and deadlines.</p>
-
-            </a>
-
-
-            <a
-                href="https://savannahstate.edu/events/"
-                target="_blank"
-                class="quick-card">
-
-                <span>🎉</span>
-
-                <h3>Campus Events</h3>
-
-                <p>See what's happening at SSU.</p>
-
-            </a>
-
-
-            <a
-                href="https://savannahstate.edu/library/"
-                target="_blank"
-                class="quick-card">
-
-                <span>📖</span>
-
-                <h3>Library</h3>
-
-                <p>Research, study, and library assistance.</p>
-
-            </a>
-
-
-            <a
-                href="https://savannahstate.edu/career-services/"
-                target="_blank"
-                class="quick-card">
-
-                <span>💼</span>
-
-                <h3>Career Services</h3>
-
-                <p>Jobs, internships, and career preparation.</p>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         STUDENT SURVEY
-    ========================== -->
-
-    <section class="survey-section" id="survey">
-
-        <div class="survey-wrapper">
-
-            <span class="survey-icon">📝</span>
-
-            <h2>Student Survey</h2>
-
-            <p>
-                Help us improve the Savannah State Student Resource Hub.
-                Tell us whether you were able to find the information you needed.
-            </p>
-
-            <!-- REPLACE THIS URL WITH YOUR GOOGLE FORM -->
-            <a
-                href="YOUR_GOOGLE_FORM_URL"
-                target="_blank"
-                class="survey-btn">
-
-                TAKE THE SURVEY
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         LOCATION
-    ========================== -->
-
-    <section class="map-section" id="location">
-
-        <div class="section-header">
-
-            <h2>Location</h2>
-
-            <p>
-                Savannah State University
-            </p>
-
-        </div>
-
-
-        <div class="map-box">
-
-            <iframe
-                src="https://www.google.com/maps?q=Savannah%20State%20University%2C%203219%20College%20St%2C%20Savannah%2C%20GA%2031404&output=embed"
-                width="100%"
-                height="400"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy">
-            </iframe>
-
-        </div>
-
-    </section>
-
+    </div>
 
 
     <!-- =========================
          FOOTER
     ========================== -->
+    <footer>
 
-    <footer class="footer-block">
+        <div class="footer-container">
 
-        <p>
-            Savannah State University •
-            3219 College St. • Savannah, Georgia 31404
-        </p>
+            <h2>Savannah State University</h2>
 
-        <p class="project-credit">
-            Savannah State University — Senior Design Capstone Project © 2026
-        </p>
+            <p>
+                Student Resource Hub
+            </p>
+
+            <p>
+                3219 College Street<br>
+                Savannah, GA 31404
+            </p>
+
+            <p class="copyright">
+                © 2026 Savannah State Student Resource Hub
+            </p>
+
+        </div>
 
     </footer>
-
 
 
     <script src="script.js"></script>
