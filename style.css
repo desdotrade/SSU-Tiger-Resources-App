@@ -1,688 +1,2095 @@
-/* =========================
-   GENERAL
-========================= */
-
 * {
+
     margin: 0;
+
     padding: 0;
+
+    font-family: 'Poppins', sans-serif;
+
     box-sizing: border-box;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
+
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #222;
+
     background: #ffffff;
-    line-height: 1.6;
-}
 
-a {
-    text-decoration: none;
-}
+    color: #333;
 
-button,
-input {
-    font-family: inherit;
-}
-
-.section-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 
-/* =========================
-   HERO
-========================= */
+:root {
 
-.hero-section {
-    min-height: 620px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    --ssu-blue: #002855;
 
-    background:
+    --ssu-orange: #EE7624;
+
+    --light-gray: #f5f5f5;
+
+}
+
+
+.header {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    background-image:
+
         linear-gradient(
-            rgba(0, 35, 149, 0.88),
-            rgba(0, 35, 149, 0.88)
+            rgba(0, 40, 85, 0.65),
+            rgba(0, 40, 85, 0.65)
         ),
-        url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=80");
+
+        url("capstoneimages/Image 13.jpg");
+
+    background-position: center;
 
     background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-}
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-}
-
-.hero-content {
     position: relative;
-    z-index: 2;
-    width: 90%;
-    max-width: 850px;
+
 }
 
-.school-name {
-    font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 4px;
-    margin-bottom: 20px;
+
+
+/* 
+   NAVIGATION
+*/
+
+nav {
+
+    display: flex;
+
+    padding: 2% 6%;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 10;
+
 }
 
-.hero-content h1 {
-    font-size: clamp(3rem, 7vw, 6rem);
-    line-height: 1;
-    margin-bottom: 25px;
+
+nav img {
+
+    width: 150px;
+
 }
 
-.hero-text {
-    max-width: 650px;
-    margin: 0 auto 35px;
-    font-size: 1.15rem;
+
+
+/* 
+   NAVIGATION LINKS*/
+
+.nav-links {
+
+    flex: 1;
+
+    text-align: right;
+
 }
 
-.hero-button {
+
+.nav-links ul li {
+
+    list-style: none;
+
     display: inline-block;
-    padding: 15px 30px;
-    background: #ed7800;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
-}
 
-.hero-button:hover {
-    background: #ffffff;
-    color: #002395;
+    padding: 8px 12px;
+
+    position: relative;
+
 }
 
 
-/* =========================
-   MENU
-========================= */
+.nav-links ul li a {
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+}
+
+
+
+
+.nav-links ul li::after {
+
+    content: '';
+
+    width: 0%;
+
+    height: 2px;
+
+    background: var(--ssu-orange);
+
+    display: block;
+
+    margin: auto;
+
+    transition: 0.5s;
+
+}
+
+
+.nav-links ul li:hover::after {
+
+    width: 100%;
+
+}
+
+
+
+/* HERO TEXT */
+
+.text-box {
+
+    width: 90%;
+
+    color: #fff;
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+}
+
+
+.text-box h1 {
+
+    font-size: 55px;
+
+    font-weight: 600;
+
+}
+
+
+.text-box h2 {
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    margin-top: 5px;
+
+}
+
+
+.text-box p {
+
+    margin: 15px 0 35px;
+
+    font-size: 15px;
+
+    color: #fff;
+
+}
+
+
+
+/* Same general appearance as the inspiration */
+
+.hero-btn {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    border: 1px solid #fff;
+
+    padding: 12px 34px;
+
+    font-size: 13px;
+
+    background: transparent;
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition: 0.5s;
+
+}
+
+
+.hero-btn:hover {
+
+    border: 1px solid var(--ssu-orange);
+
+    background: var(--ssu-orange);
+
+}
+
+
+
+/* MOBILE MENU */
+
+#menu-toggle {
+
+    display: none;
+
+}
+
 
 .menu-icon {
-    position: fixed;
-    top: 25px;
-    left: 25px;
-    width: 45px;
-    height: 45px;
-    background: #ffffff;
-    border-radius: 5px;
-    z-index: 3000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
 
-.menu-icon span {
-    width: 23px;
-    height: 3px;
-    background: #002395;
-    border-radius: 3px;
-}
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -320px;
-    width: 300px;
-    height: 100vh;
-    background: #ffffff;
-    z-index: 4000;
-    padding: 80px 30px 30px;
-    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s ease;
-}
-
-.side-menu.active {
-    left: 0;
-}
-
-.side-menu h2 {
-    color: #002395;
-    margin-bottom: 25px;
-}
-
-.side-menu a {
-    display: block;
-    color: #222;
-    padding: 14px 0;
-    border-bottom: 1px solid #eeeeee;
-    font-weight: bold;
-}
-
-.side-menu a:hover {
-    color: #ed7800;
-}
-
-.close-menu {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    border: none;
-    background: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #002395;
-}
-
-.menu-overlay {
     display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 3500;
+
+    color: #fff;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
 }
 
-.menu-overlay.active {
-    display: block;
+
+.close-icon {
+
+    display: none;
+
+    color: #fff;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+
+/*  FIND A RESOURCE */
 
 .search-section {
-    padding: 80px 0;
-    background: #f5f6fa;
-    text-align: center;
-}
 
-.search-section h2 {
-    color: #002395;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
+    width: 80%;
 
-.search-section p {
-    max-width: 700px;
-    margin: 0 auto 25px;
-    color: #555;
-}
-
-.search-container {
-    max-width: 750px;
-    margin: 0 auto;
-    display: flex;
-    gap: 10px;
-}
-
-.search-container input {
-    flex: 1;
-    padding: 17px;
-    border: 2px solid #dddddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-}
-
-.search-container input:focus {
-    border-color: #002395;
-}
-
-.search-container button {
-    padding: 0 25px;
-    border: none;
-    border-radius: 5px;
-    background: #002395;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background: #ed7800;
-}
-
-.search-message {
-    min-height: 25px;
-    margin-top: 15px !important;
-    font-weight: bold;
-}
-
-
-/* =========================
-   SECTION HEADINGS
-========================= */
-
-.resources-section {
-    padding: 100px 0;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.small-heading {
-    color: #ed7800;
-    font-size: 0.85rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-}
-
-.section-heading h2 {
-    font-size: 3rem;
-    color: #002395;
-    margin-bottom: 10px;
-}
-
-
-/* =========================
-   CATEGORY CARDS
-========================= */
-
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.category-card {
-    display: block;
-    padding: 35px 30px;
-    border: 1px solid #e3e3e3;
-    border-radius: 10px;
-    color: #222;
-    background: white;
-    transition: 0.3s;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-.category-card:hover {
-    transform: translateY(-7px);
-    border-color: #ed7800;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-}
-
-.category-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.category-card h3 {
-    color: #002395;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.category-card p {
-    color: #666;
-}
-
-
-/* =========================
-   RESOURCE CATEGORIES
-========================= */
-
-.resource-category {
-    padding: 100px 0;
-}
-
-.resource-category.alternate {
-    background: #f5f6fa;
-}
-
-.category-title {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    margin-bottom: 45px;
-}
-
-.category-title > span {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #ed7800;
-    line-height: 1;
-}
-
-.category-title h2 {
-    font-size: 2.8rem;
-    color: #002395;
-}
-
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.resource-item {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid #e3e3e3;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.alternate .resource-item {
-    background: white;
-}
-
-.resource-item h3 {
-    color: #002395;
-    font-size: 1.35rem;
-    margin-bottom: 12px;
-}
-
-.resource-item p {
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.resource-info {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.resource-link {
-    display: inline-block;
-    color: #002395;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.resource-link:hover {
-    color: #ed7800;
-}
-
-
-/* =========================
-   HIDDEN SEARCH RESULTS
-========================= */
-
-.resource-item.hidden {
-    display: none;
-}
-
-.resource-category.hidden {
-    display: none;
-}
-
-
-/* =========================
-   QUICK ACCESS
-========================= */
-
-.quick-section {
-    padding: 90px 0;
-    background: #002395;
-    color: white;
-}
-
-.quick-section .section-heading h2 {
-    color: white;
-}
-
-.quick-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-}
-
-.quick-grid a {
-    padding: 20px;
-    background: white;
-    color: #002395;
-    text-align: center;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.quick-grid a:hover {
-    background: #ed7800;
-    color: white;
-}
-
-
-/* =========================
-   SURVEY
-========================= */
-
-.survey-section {
-    padding: 100px 0;
-    background: #f5f6fa;
-}
-
-.survey-box {
-    max-width: 800px;
     margin: auto;
-    padding: 60px 40px;
-    background: white;
-    border-radius: 12px;
+
     text-align: center;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+
+    padding: 80px 0 50px;
+
 }
 
-.survey-box h2 {
-    color: #002395;
-    font-size: 2.7rem;
-    margin-bottom: 15px;
+
+.search-section h1 {
+
+    font-size: 36px;
+
+    font-weight: 600;
+
+    color: #333;
+
 }
 
-.survey-box p:not(.small-heading) {
-    max-width: 600px;
-    margin: 0 auto 25px;
-    color: #555;
+
+.search-section > p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 22px;
+
+    padding: 10px;
+
 }
+
+
+
+/* SEARCH BOX*/
+
+.search-box {
+
+    width: 80%;
+
+    max-width: 700px;
+
+    margin: 30px auto 0;
+
+    display: flex;
+
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    padding: 15px;
+
+    border: 1px solid #ccc;
+
+    outline: none;
+
+    font-size: 14px;
+
+}
+
+
+.search-box button {
+
+    padding: 0 28px;
+
+    border: none;
+
+    background: var(--ssu-blue);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.5s;
+
+}
+
+
+.search-box button:hover {
+
+    background: var(--ssu-orange);
+
+}
+
+
+
+/* 
+   MAIN STUDENT RESOURCES*/
+
+.resources {
+
+    width: 80%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 60px 0 50px;
+
+}
+
+
+.resources h1 {
+
+    font-size: 36px;
+
+    font-weight: 600;
+
+    color: #333;
+
+}
+
+
+.resources > p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 22px;
+
+    padding: 10px;
+
+}
+
+
+.row {
+
+    margin-top: 5%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+
+
+/* 
+   MAIN RESOURCE CARDS
+
+ */
+
+.resource-col {
+
+    flex-basis: 31%;
+
+    height: 300px;
+
+    border-radius: 10px;
+
+    margin-bottom: 5%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+}
+
+
+.resource-col img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.5s;
+
+}
+
+
+
+/* MAIN RESOURCE */
+
+.resource-layer {
+
+    background: transparent;
+
+    height: 100%;
+
+    width: 100%;
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    transition: 0.5s;
+
+}
+
+
+
+/* Dark SSU overlay on hover */
+
+.resource-layer:hover {
+
+    background: rgba(0, 40, 85, 0.78);
+
+}
+
+
+
+/* RESOURCE */
+
+.resource-text {
+
+    width: 100%;
+
+    position: absolute;
+
+    bottom: -150px;
+
+    left: 0;
+
+    padding: 20px;
+
+    color: #fff;
+
+    text-align: center;
+
+    transition: 0.5s;
+
+}
+
+
+.resource-text h3 {
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    margin-bottom: 12px;
+
+}
+
+
+.resource-text p {
+
+    font-size: 12px;
+
+    line-height: 22px;
+
+    color: #fff;
+
+}
+
+
+
+.resource-col:hover .resource-text {
+
+    bottom: 15%;
+
+}
+
+
+.resource-col:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+
+/*  ADDITIONAL RESOURCES*/
+
+.additional-resources {
+
+    width: 80%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 60px 0 80px;
+
+}
+
+
+.additional-resources h1 {
+
+    font-size: 36px;
+
+    font-weight: 600;
+
+    color: #333;
+
+}
+
+
+.additional-resources > p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 22px;
+
+    padding: 10px;
+
+}
+
+
+
+/* ADDITIONAL RESOURCE */
+
+
+.campus-col {
+
+    flex-basis: 32%;
+
+    border-radius: 10px;
+
+    margin-bottom: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.campus-col img {
+
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+
+
+
+.layer {
+
+    background: transparent;
+
+    height: 100%;
+
+    width: 100%;
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    transition: 0.5s;
+
+}
+
+
+.layer:hover {
+
+    background: rgba(238, 118, 36, 0.78);
+
+}
+
+
+
+/* 
+   TEXT THAT POPS UP FROM THE BOTTOM
+*/
+
+.layer h3 {
+
+    width: 100%;
+
+    font-weight: 500;
+
+    color: #fff;
+
+    font-size: 25px;
+
+    bottom: -80px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    position: absolute;
+
+    opacity: 0;
+
+    transition: 0.5s;
+
+}
+
+
+.layer p {
+
+    width: 85%;
+
+    color: #fff;
+
+    font-size: 12px;
+
+    line-height: 20px;
+
+    bottom: -130px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    position: absolute;
+
+    opacity: 0;
+
+    transition: 0.5s;
+
+}
+
+
+.layer:hover h3 {
+
+    bottom: 48%;
+
+    opacity: 1;
+
+}
+
+
+.layer:hover p {
+
+    bottom: 27%;
+
+    opacity: 1;
+
+}
+
+
+
+/* 
+   STUDENT SURVEY
+ */
+
+.survey {
+
+    width: 80%;
+
+    margin: 40px auto 80px;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    background: var(--ssu-blue);
+
+}
+
+
+.survey h1 {
+
+    color: #fff;
+
+    font-size: 34px;
+
+    font-weight: 600;
+
+}
+
+
+.survey p {
+
+    width: 70%;
+
+    margin: 15px auto 30px;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    line-height: 22px;
+
+}
+
 
 .survey-btn {
-    border: none;
-    background: #ed7800;
-    color: white;
-    padding: 16px 35px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1rem;
-}
 
-.survey-btn:hover {
-    background: #002395;
+    margin-top: 5px;
+
 }
 
 
-/* =========================
-   SURVEY MODAL
-========================= */
 
-.survey-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    z-index: 5000;
-}
+/* 
+   LOCATION
+*/
 
-.survey-modal.active {
-    display: flex;
-}
+.location {
 
-.survey-modal-content {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    padding: 40px 30px;
-    background: white;
-    border-radius: 15px;
+    width: 80%;
+
+    margin: auto;
+
     text-align: center;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-}
 
-.survey-modal-content h2 {
-    color: #002395;
-    margin-bottom: 10px;
-}
+    padding: 20px 0 80px;
 
-.survey-modal-content p:not(.small-heading) {
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.survey-qr {
-    width: 260px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 15px auto 20px;
-}
-
-.survey-instruction {
-    font-size: 0.9rem;
-    color: #777 !important;
-}
-
-.close-survey {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    border: none;
-    background: none;
-    color: #555;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-.close-survey:hover {
-    color: #ed7800;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+.location h1 {
+
+    font-size: 36px;
+
+    font-weight: 600;
+
+    color: #333;
+
+}
+
+
+.location > p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    padding: 10px;
+
+}
+
+
+
+/* 
+   MAP
+*/
+
+.map {
+
+    width: 100%;
+
+    margin-top: 30px;
+
+}
+
+
+.map iframe {
+
+    width: 100%;
+
+    height: 400px;
+
+    border: 0;
+
+}
+
+
+
+/* FOOTER */
 
 footer {
-    background: #111;
-    color: white;
-    padding: 60px 0;
-}
 
-.footer-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+    width: 100%;
+
     text-align: center;
-}
 
-.footer-container h2 {
-    color: white;
-    margin-bottom: 5px;
-}
+    padding: 50px 20px;
 
-.footer-container p {
-    color: #cccccc;
-    margin-bottom: 8px;
-}
+    background: var(--ssu-blue);
 
-.footer-container .copyright {
-    margin-top: 25px;
-    font-size: 0.85rem;
-}
-
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
-
-    .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .resource-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .quick-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    color: #fff;
 
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+footer h3 {
 
-@media (max-width: 600px) {
+    margin-bottom: 10px;
 
-    .hero-section {
-        min-height: 550px;
+    font-size: 20px;
+
+}
+
+
+footer p {
+
+    font-size: 12px;
+
+    margin: 8px 0;
+
+    color: #ddd;
+
+}
+
+
+.footer-icons {
+
+    margin: 20px 0;
+
+}
+
+
+.footer-icons i {
+
+    color: var(--ssu-orange);
+
+    margin: 0 10px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+}
+
+
+
+/* MOBILE RESPONSIVE DESIGN */
+
+@media (max-width: 700px) {
+
+
+    /* HERO */
+
+    .header {
+
+        min-height: 90vh;
+
     }
 
-    .school-name {
-        font-size: 0.75rem;
-        letter-spacing: 2px;
+
+    nav {
+
+        padding: 5% 6%;
+
     }
 
-    .hero-content h1 {
-        font-size: 3rem;
+
+    nav img {
+
+        width: 120px;
+
     }
 
-    .hero-text {
-        font-size: 1rem;
+
+
+    /*
+       MOBILE MENU
+     */
+
+    .menu-icon {
+
+        display: block;
+
     }
 
-    .search-container {
+
+    .nav-links {
+
+        position: fixed;
+
+        background: var(--ssu-blue);
+
+        height: 100vh;
+
+        width: 240px;
+
+        top: 0;
+
+        right: -240px;
+
+        text-align: left;
+
+        z-index: 20;
+
+        transition: 0.5s;
+
+        padding-top: 70px;
+
+    }
+
+
+    #menu-toggle:checked ~ .nav-links {
+
+        right: 0;
+
+    }
+
+
+    .nav-links ul li {
+
+        display: block;
+
+        padding: 15px 25px;
+
+    }
+
+
+    .nav-links ul li a {
+
+        font-size: 14px;
+
+    }
+
+
+    .close-icon {
+
+        display: block;
+
+        position: absolute;
+
+        top: 25px;
+
+        left: 25px;
+
+    }
+
+
+
+    /* HERO */
+
+    .text-box h1 {
+
+        font-size: 27px;
+
+    }
+
+
+    .text-box h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .text-box p {
+
+        font-size: 13px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+
+    /* SEARCH fuction coming soon*/
+
+    .search-section {
+
+        width: 90%;
+
+        padding-top: 60px;
+
+    }
+
+
+    .search-section h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .search-box {
+
+        width: 100%;
+
+    }
+
+
+    .search-box input {
+
+        width: 100%;
+
+    }
+
+
+    .search-box button {
+
+        padding: 0 18px;
+
+    }
+
+
+
+    /*  SECTION HEADINGS */
+
+    .resources h1,
+    .additional-resources h1,
+    .location h1 {
+
+        font-size: 28px;
+
+    }
+
+
+
+    /*ROWS FOR MOBILE*/
+
+    .row {
+
         flex-direction: column;
+
     }
 
-    .search-container button {
-        padding: 15px;
+
+    .resources,
+    .additional-resources,
+    .location {
+
+        width: 90%;
+
     }
 
-    .category-grid,
-    .resource-grid,
-    .quick-grid {
-        grid-template-columns: 1fr;
+
+
+    /* MAIN RESOURCE CARDS*/
+
+    .resource-col {
+
+        height: 300px;
+
+        margin-bottom: 25px;
+
     }
 
-    .section-heading h2 {
-        font-size: 2.3rem;
+
+    .resource-text {
+
+        bottom: -160px;
+
     }
 
-    .category-title {
-        align-items: flex-start;
+
+    .resource-col:hover .resource-text {
+
+        bottom: 12%;
+
     }
 
-    .category-title > span {
-        font-size: 2.8rem;
+
+
+    /* ADDITIONAL RESOURCES*/
+
+    .campus-col {
+
+        margin-bottom: 25px;
+
     }
 
-    .category-title h2 {
-        font-size: 2rem;
+
+    .campus-col img {
+
+        height: 280px;
+
     }
 
-    .survey-box {
-        padding: 45px 25px;
+
+    .layer h3 {
+
+        font-size: 22px;
+
     }
 
-    .survey-box h2 {
-        font-size: 2.2rem;
+
+    .layer p {
+
+        font-size: 11px;
+
+    }
+
+
+
+    /* SURVEY*/
+
+    .survey {
+
+        width: 90%;
+
+        padding: 55px 20px;
+
+    }
+
+
+    .survey h1 {
+
+        font-size: 27px;
+
+    }
+
+
+    .survey p {
+
+        width: 100%;
+
+        font-size: 13px;
+
+    }
+
+
+
+    /* MAP*/
+
+    .map iframe {
+
+        height: 350px;
+
+    }
+
+}
+    --ssu-orange: #EE7624;
+
+    --light-gray: #f5f5f5;
+
+}
+
+
+
+/* HEADER */
+
+.header {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    background-image:
+    linear-gradient(rgba(0, 40, 85, 0.75), rgba(0, 40, 85, 0.75)),
+    url("capstoneimages/Image 12.jpg");
+
+    background-position: center;
+
+    background-size: cover;
+
+    position: relative;
+
+}
+
+
+/* NAVIGATION */
+
+nav {
+
+    display: flex;
+
+    padding: 2% 6%;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+nav img {
+
+    width: 150px;
+
+}
+
+
+/* HAMBURGER */
+
+#menu-toggle {
+
+    display: none;
+
+}
+
+
+.menu-icon {
+
+    display: block;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    margin-left: auto;
+
+}
+
+
+.close-icon {
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    display: block;
+
+    text-align: right;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* NAVIGATION MENU */
+
+.nav-links {
+
+    position: fixed;
+
+    top: 0;
+
+    right: -300px;
+
+    width: 280px;
+
+    height: 100vh;
+
+    background-color: var(--ssu-blue);
+
+    padding: 30px;
+
+    z-index: 9;
+
+    transition: 0.5s;
+
+    overflow-y: auto;
+
+}
+
+
+#menu-toggle:checked ~ .nav-links {
+
+    right: 0;
+
+}
+
+
+.nav-links a {
+
+    display: block;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 0;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+}
+
+
+.nav-links a:hover {
+
+    color: var(--ssu-orange);
+
+}
+
+
+
+/* HEADER TEXT */
+
+.text-box {
+
+    width: 90%;
+
+    color: white;
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+}
+
+
+.text-box h1 {
+
+    font-size: 55px;
+
+    font-weight: 700;
+
+}
+
+
+.text-box p {
+
+    font-size: 22px;
+
+    margin-top: 10px;
+
+}
+
+
+
+/* SEARCH SECTION */
+
+.search-section {
+
+    width: 80%;
+
+    margin: 50px auto;
+
+    padding: 50px 30px;
+
+    background-color: var(--ssu-blue);
+
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+
+.search-section h1 {
+
+    color: white;
+
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.search-section p {
+
+    color: white;
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.search-box {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    display: flex;
+
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    padding: 15px;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 14px;
+
+    border-radius: 5px 0 0 5px;
+
+}
+
+
+.search-box button {
+
+    padding: 15px 25px;
+
+    border: none;
+
+    background-color: var(--ssu-orange);
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    border-radius: 0 5px 5px 0;
+
+}
+
+
+.search-box button:hover {
+
+    background-color: #d95f12;
+
+}
+
+
+
+/* STUDENT RESOURCES */
+
+.resources {
+
+    width: 80%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 50px 0;
+
+}
+
+
+.resources h1 {
+
+    color: var(--ssu-blue);
+
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.section-intro {
+
+    color: #777777;
+
+    font-size: 14px;
+
+    line-height: 22px;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+/* ROW */
+
+.row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+/* MAIN RESOURCE CARDS */
+
+.resource-col {
+
+    flex: 1;
+
+    background-color: var(--light-gray);
+
+    border-radius: 10px;
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+}
+
+
+.resource-icon {
+
+    color: var(--ssu-orange);
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.resource-col h3 {
+
+    color: var(--ssu-blue);
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.resource-col p {
+
+    color: #666666;
+
+    font-size: 13px;
+
+    line-height: 21px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.resource-col ul {
+
+    text-align: left;
+
+    padding-left: 20px;
+
+    color: #555555;
+
+    font-size: 13px;
+
+    line-height: 25px;
+
+}
+
+
+
+/* ADDITIONAL RESOURCES */
+
+.additional {
+
+    width: 80%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 50px 0;
+
+}
+
+
+.additional h1 {
+
+    color: var(--ssu-blue);
+
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.additional-col {
+
+    flex: 1;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    padding: 35px 25px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.4s;
+
+}
+
+
+.additional-col:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+}
+
+
+.additional-col i {
+
+    color: var(--ssu-orange);
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.additional-col h3 {
+
+    color: var(--ssu-blue);
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.additional-col p {
+
+    color: #666666;
+
+    font-size: 13px;
+
+    line-height: 21px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+/* BUTTON */
+
+.resource-btn {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    background-color: var(--ssu-blue);
+
+    color: white;
+
+    padding: 10px 20px;
+
+    font-size: 12px;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+
+}
+
+
+.resource-btn:hover {
+
+    background-color: var(--ssu-orange);
+
+}
+
+
+
+/* SURVEY */
+
+.survey {
+
+    width: 100%;
+
+    margin-top: 50px;
+
+    padding: 70px 20px;
+
+    background-color: var(--ssu-blue);
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+.survey h1 {
+
+    font-size: 36px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.survey p {
+
+    max-width: 650px;
+
+    margin: 0 auto 25px;
+
+    font-size: 14px;
+
+    line-height: 22px;
+
+}
+
+
+
+/* LOCATION */
+
+.location {
+
+    width: 80%;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 70px 0;
+
+}
+
+
+.location h1 {
+
+    color: var(--ssu-blue);
+
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.map-placeholder {
+
+    width: 100%;
+
+    height: 350px;
+
+    margin-top: 30px;
+
+}
+
+
+.map-placeholder iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+}
+
+
+
+/* FOOTER */
+
+footer {
+
+    background-color: var(--light-gray);
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+}
+
+
+footer h3 {
+
+    color: var(--ssu-blue);
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+}
+
+
+footer p {
+
+    color: #777777;
+
+    font-size: 13px;
+
+    margin: 8px 0;
+
+}
+
+
+.social-icons {
+
+    margin: 20px 0;
+
+}
+
+
+.social-icons i {
+
+    color: var(--ssu-orange);
+
+    font-size: 20px;
+
+    margin: 0 10px;
+
+    cursor: pointer;
+
+}
+
+
+.social-icons i:hover {
+
+    color: var(--ssu-blue);
+
+}
+
+
+
+/* MOBILE DESIGN */
+
+@media (max-width: 700px) {
+
+
+    /* HEADER */
+
+    .header {
+
+        min-height: 80vh;
+
+    }
+
+
+    nav img {
+
+        width: 120px;
+
+    }
+
+
+    .text-box h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .text-box p {
+
+        font-size: 18px;
+
+    }
+
+
+
+    /* SEARCH */
+
+    .search-section {
+
+        width: 90%;
+
+        padding: 40px 20px;
+
+        margin: 35px auto;
+
+    }
+
+
+    .search-section h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .search-box {
+
+        display: block;
+
+    }
+
+
+    .search-box input {
+
+        width: 100%;
+
+        border-radius: 5px;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .search-box button {
+
+        width: 100%;
+
+        border-radius: 5px;
+
+    }
+
+
+
+    /* RESOURCES */
+
+    .resources {
+
+        width: 90%;
+
+        padding: 30px 0;
+
+    }
+
+
+    .resources h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .row {
+
+        display: block;
+
+        margin-bottom: 0;
+
+    }
+
+
+    .resource-col {
+
+        width: 100%;
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+    /* ADDITIONAL RESOURCES */
+
+    .additional {
+
+        width: 90%;
+
+        padding: 30px 0;
+
+    }
+
+
+    .additional h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .additional-col {
+
+        width: 100%;
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+    /* SURVEY */
+
+    .survey {
+
+        padding: 55px 20px;
+
+    }
+
+
+    .survey h1 {
+
+        font-size: 28px;
+
+    }
+
+
+
+    /* LOCATION */
+
+    .location {
+
+        width: 90%;
+
+        padding: 50px 0;
+
+    }
+
+
+    .location h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .map-placeholder {
+
+        height: 300px;
+
+    }
+
+
+
+    /* FOOTER */
+
+    footer {
+
+        padding: 35px 15px;
+
     }
 
 }
