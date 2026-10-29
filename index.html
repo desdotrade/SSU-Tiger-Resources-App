@@ -2,44 +2,49 @@
 <html lang="en">
 
 <head>
+    <!-- Basic Page Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Savannah State Student Resource Hub</title>
+    <!-- Page Title -->
+    <title>Savannah State Student test run Resource Hub</title>
 
+    <!-- Google Font - Same style as the inspiration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- Font Awesome -->
     <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- Our CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <section class="header" id="home">
+    <!-- HEADER -->
+    <section class="header">
 
         <nav>
+            
+            <!-- CSS-only mobile menu -->
+            <input type="checkbox" id="menu-toggle">
 
-            <!-- Hamburger -->
-            <button class="menu-icon" id="menuIcon" aria-label="Open menu">
+            <label for="menu-toggle" class="menu-icon">
                 <i class="fa fa-bars"></i>
-            </button>
+            </label>
 
-            <!-- Side Menu -->
-            <div class="side-menu" id="sideMenu">
+            <div class="nav-links">
 
-                <button class="close-icon" id="closeMenu" aria-label="Close menu">
+                <label for="menu-toggle" class="close-icon">
                     <i class="fa fa-times"></i>
-                </button>
+                </label>
 
                 <ul>
                     <li><a href="#home">HOME</a></li>
-                    <li><a href="#search">SEARCH</a></li>
                     <li><a href="#resources">RESOURCES</a></li>
                     <li><a href="#additional-resources">ADDITIONAL RESOURCES</a></li>
                     <li><a href="#survey">SURVEY</a></li>
@@ -48,15 +53,14 @@
 
             </div>
 
-            <div class="menu-overlay" id="menuOverlay"></div>
-
         </nav>
 
-        <div class="text-box">
+        <!-- Main header Text -->
+        <div class="text-box" id="home">
 
-            <p class="small-heading">SAVANNAH STATE UNIVERSITY</p>
+            <h1>SAVANNAH STATE UNIVERSITY</h1>
 
-            <h1>Student Resource Hub</h1>
+            <h2>Student Resource Hub</h2>
 
             <p>
                 Find important student resources, services, and campus information
@@ -70,7 +74,7 @@
     </section>
 
 
-    <!-- ================= SEARCH ================= -->
+    <!-- FIND A RESOURCE -->
     <section class="search-section" id="search">
 
         <h1>FIND A RESOURCE</h1>
@@ -81,24 +85,17 @@
 
         <div class="search-box">
 
-            <input
-                type="text"
-                id="resourceSearch"
-                placeholder="I'm looking for..."
-                aria-label="Search for a student resource">
+            <!-- Search functionality can be added later -->
+            <input type="text" placeholder="I'm looking for...">
 
-            <button type="button" id="searchButton">
-                SEARCH
-            </button>
+            <button type="button">SEARCH</button>
 
         </div>
-
-        <p id="searchMessage" class="search-message"></p>
 
     </section>
 
 
-    <!-- ================= MAIN RESOURCES ================= -->
+    <!-- MAIN STUDENT RESOURCES -->
     <section class="resources" id="resources">
 
         <h1>STUDENT RESOURCES</h1>
@@ -108,107 +105,80 @@
         </p>
 
 
-        <!-- ACADEMIC -->
-        <div class="resource-category">
+        <div class="row">
 
-            <h2 class="category-title">ACADEMIC SUPPORT</h2>
+            <!-- ACADEMIC SUPPORT -->
+            <div class="resource-col">
 
-            <div class="row">
+                <!-- Upload an academic/library/student image here -->
+                <img src="capstoneimages/Image 5.jpg" alt="Academic Support">
 
-                <div class="resource-col resource-item"
-                    data-resource="academic support tutoring academic advising library study resources">
+                <div class="resource-layer">
 
-                    <img src="capstoneimages/Image 5.jpg" alt="Academic Support">
+                    <div class="resource-text">
 
-                    <div class="resource-layer">
+                        <h3>ACADEMIC SUPPORT</h3>
 
-                        <div class="resource-text">
-
-                            <h3>ACADEMIC SUPPORT</h3>
-
-                            <p>
-                                Tutoring<br>
-                                Library Resources<br>
-                                Academic Advising<br>
-                                Study Resources
-                            </p>
-
-                            <a href="https://savannahstate.edu/student-success/center-for-student-success/academic-support/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-btn">
-                                VIEW RESOURCES
-                            </a>
-
-                        </div>
+                        <p>
+                            Tutoring<br>
+                            Library Resources<br>
+                            Academic Advising<br>
+                            Study Resources
+                        </p>
 
                     </div>
 
                 </div>
 
+            </div>
 
-                <!-- FINANCIAL -->
-                <div class="resource-col resource-item"
-                    data-resource="financial aid billing fafsa scholarships emergency financial resources">
 
-                    <img src="capstoneimages/Image 4.jpg" alt="Financial Aid and Billing">
+            <!-- FINANCIAL AID & BILLING -->
+            <div class="resource-col">
 
-                    <div class="resource-layer">
+                <!-- Upload a financial aid/student image here -->
+                <img src="capstoneimages/Image 4.jpg" alt="Financial Aid and Billing">
 
-                        <div class="resource-text">
+                <div class="resource-layer">
 
-                            <h3>FINANCIAL AID &amp; BILLING</h3>
+                    <div class="resource-text">
 
-                            <p>
-                                FAFSA Information<br>
-                                Scholarships<br>
-                                Financial Aid<br>
-                                Emergency Financial Resources<br>
-                                Billing Information
-                            </p>
+                        <h3>FINANCIAL AID &amp; BILLING</h3>
 
-                            <a href="https://savannahstate.edu/financial-aid/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-btn">
-                                VIEW RESOURCES
-                            </a>
-
-                        </div>
+                        <p>
+                            FAFSA Information<br>
+                            Scholarships<br>
+                            Financial Aid<br>
+                            Emergency Financial Resources<br>
+                            Billing Information
+                        </p>
 
                     </div>
 
                 </div>
 
+            </div>
 
-                <!-- CAREER -->
-                <div class="resource-col resource-item"
-                    data-resource="career services resume internships job boards interview preparation">
 
-                    <img src="capstoneimages/Image 1.jpg" alt="Career Development">
+            <!-- CAREER DEVELOPMENT -->
+            <div class="resource-col">
 
-                    <div class="resource-layer">
+                <!-- Upload a career/fair/professional image here -->
+                <img src="capstoneimages/Image 1.jpg" alt="Career Development">
 
-                        <div class="resource-text">
+                <div class="resource-layer">
 
-                            <h3>CAREER DEVELOPMENT</h3>
+                    <div class="resource-text">
 
-                            <p>
-                                Career Services<br>
-                                Resume Resources<br>
-                                Internship Resources<br>
-                                Job Boards<br>
-                                Interview Preparation
-                            </p>
+                        <h3>CAREER DEVELOPMENT</h3>
 
-                            <a href="https://savannahstate.edu/career-services/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-btn">
-                                VIEW RESOURCES
-                            </a>
-
-                        </div>
+                        <p>
+                            Career Services<br>
+                            Resume Resources<br>
+                            Internship Resources<br>
+                            Job Boards<br>
+                            Interview Preparation
+                        </p>
 
                     </div>
 
@@ -219,109 +189,81 @@
         </div>
 
 
-        <!-- CAMPUS / STUDENT -->
-        <div class="resource-category">
+        <div class="row">
 
-            <h2 class="category-title">CAMPUS &amp; STUDENT LIFE</h2>
+            <!-- CAMPUS LIFE -->
+            <div class="resource-col">
 
-            <div class="row">
+                <!-- Upload a Savannah State campus/student life image here -->
+                <img src="capstoneimages/Image 7.jpg" alt="Campus Life">
 
-                <!-- CAMPUS LIFE -->
-                <div class="resource-col resource-item"
-                    data-resource="campus life clubs organizations events student activities campus locations engagement">
+                <div class="resource-layer">
 
-                    <img src="capstoneimages/Image 7.jpg" alt="Campus Life">
+                    <div class="resource-text">
 
-                    <div class="resource-layer">
+                        <h3>CAMPUS LIFE</h3>
 
-                        <div class="resource-text">
-
-                            <h3>CAMPUS LIFE</h3>
-
-                            <p>
-                                Clubs &amp; Organizations<br>
-                                Events<br>
-                                Student Activities<br>
-                                Campus Locations<br>
-                                Campus Engagement
-                            </p>
-
-                            <a href="https://savannahstate.edu/campus-life/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-btn">
-                                VIEW RESOURCES
-                            </a>
-
-                        </div>
+                        <p>
+                            Clubs &amp; Organizations<br>
+                            Events<br>
+                            Student Activities<br>
+                            Campus Locations<br>
+                            Campus Engagement
+                        </p>
 
                     </div>
 
                 </div>
 
+            </div>
 
-                <!-- STUDENT SERVICES -->
-                <div class="resource-col resource-item"
-                    data-resource="student services counseling wellness transportation student support campus services organizations">
 
-                    <img src="capstoneimages/Image 11.jpg" alt="Student Services">
+            <!-- STUDENT SERVICES -->
+            <div class="resource-col">
 
-                    <div class="resource-layer">
+                <!-- Upload a student services/support image here -->
+                <img src="capstoneimages/Image 11.jpg" alt="Student Services">
 
-                        <div class="resource-text">
+                <div class="resource-layer">
 
-                            <h3>STUDENT SERVICES</h3>
+                    <div class="resource-text">
 
-                            <p>
-                                Counseling &amp; Wellness<br>
-                                Transportation<br>
-                                Student Support<br>
-                                Campus Services<br>
-                                Student Organizations
-                            </p>
+                        <h3>STUDENT SERVICES</h3>
 
-                            <a href="https://savannahstate.edu/student-services/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-btn">
-                                VIEW RESOURCES
-                            </a>
-
-                        </div>
+                        <p>
+                            Counseling &amp; Wellness<br>
+                            Transportation<br>
+                            Student Support<br>
+                            Campus Services<br>
+                            Student Organizations
+                        </p>
 
                     </div>
 
                 </div>
 
+            </div>
 
-                <!-- ATHLETICS -->
-                <div class="resource-col resource-item"
-                    data-resource="athletics sports teams schedules tickets athletics information">
 
-                    <img src="capstoneimages/Image 10.jpg" alt="Athletics">
+            <!-- ATHLETICS -->
+            <div class="resource-col">
 
-                    <div class="resource-layer">
+                <!-- Upload a Savannah State athletics image here -->
+                <img src="capstoneimages/Image 10.jpg" alt="Athletics">
 
-                        <div class="resource-text">
+                <div class="resource-layer">
 
-                            <h3>ATHLETICS</h3>
+                    <div class="resource-text">
 
-                            <p>
-                                Sports<br>
-                                Teams<br>
-                                Schedules<br>
-                                Tickets<br>
-                                Athletics Information
-                            </p>
+                        <h3>ATHLETICS</h3>
 
-                            <a href="https://ssuathletics.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-btn">
-                                VIEW RESOURCES
-                            </a>
-
-                        </div>
+                        <p>
+                            Sports<br>
+                            Teams<br>
+                            Schedules<br>
+                            Tickets<br>
+                            Athletics Information
+                        </p>
 
                     </div>
 
@@ -334,7 +276,7 @@
     </section>
 
 
-    <!-- ================= ADDITIONAL RESOURCES ================= -->
+    <!-- ADDITIONAL RESOURCES -->
     <section class="additional-resources" id="additional-resources">
 
         <h1>ADDITIONAL RESOURCES</h1>
@@ -343,12 +285,13 @@
             Quick access to other useful Savannah State information.
         </p>
 
+
         <div class="row">
 
             <!-- TIMES / LOCATIONS -->
-            <div class="campus-col resource-item"
-                data-resource="times locations campus hours office locations resource locations important times">
+            <div class="campus-col">
 
+                <!-- Upload a campus/location image here -->
                 <img src="capstoneimages/Image.jpg" alt="Times and Locations">
 
                 <div class="layer">
@@ -360,22 +303,15 @@
                         and important times.
                     </p>
 
-                    <a href="https://savannahstate.edu/campus/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-btn">
-                        VIEW INFORMATION
-                    </a>
-
                 </div>
 
             </div>
 
 
             <!-- CALENDAR -->
-            <div class="campus-col resource-item"
-                data-resource="calendar campus events important dates activities deadlines academic calendar">
+            <div class="campus-col">
 
+                <!-- Upload a Savannah State events image here -->
                 <img src="capstoneimages/Image 9.jpg" alt="Campus Calendar">
 
                 <div class="layer">
@@ -387,22 +323,15 @@
                         activities, and deadlines.
                     </p>
 
-                    <a href="https://savannahstate.edu/academic-affairs/calendars/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-btn">
-                        VIEW CALENDAR
-                    </a>
-
                 </div>
 
             </div>
 
 
             <!-- TECHNOLOGY -->
-            <div class="campus-col resource-item"
-                data-resource="technology IT wifi computer student technology systems">
+            <div class="campus-col">
 
+                <!-- Upload a computer/technology/campus technology image here -->
                 <img src="capstoneimages/Image 2.jpg" alt="Technology Resources">
 
                 <div class="layer">
@@ -414,13 +343,6 @@
                         and helpful technology information.
                     </p>
 
-                    <a href="https://savannahstate.edu/information-technology/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="card-btn">
-                        VIEW INFORMATION
-                    </a>
-
                 </div>
 
             </div>
@@ -430,64 +352,27 @@
     </section>
 
 
-    <!-- ================= SURVEY ================= -->
-    <section class="survey" id="survey">
+    <!-- STUDENT SURVEY -->
+<section class="survey" id="survey">
 
-        <p class="small-heading">STUDENT FEEDBACK</p>
+    <h1>STUDENT SURVEY</h1>
 
-        <h1>STUDENT SURVEY</h1>
+    <p>
+        Help us improve the Savannah State student experience.
+        Share your experiences and tell us what resources you would
+        like to see made easier to find.
+    </p>
 
-        <p>
-            Help us improve the Savannah State student experience.
-            Share your experiences and tell us what resources you would
-            like to see made easier to find.
-        </p>
+    <a href="https://forms.gle/aEXQV6WZ9AZuHG9Q9"
+       class="hero-btn survey-btn"
+       target="_blank"
+       rel="noopener noreferrer">
+        TAKE THE SURVEY
+    </a>
 
-        <button type="button" class="hero-btn survey-btn" id="surveyButton">
-            TAKE THE SURVEY
-        </button>
+</section>
 
-    </section>
-
-
-    <!-- ================= SURVEY MODAL ================= -->
-    <div class="survey-modal"
-        id="surveyModal"
-        aria-hidden="true">
-
-        <div class="survey-modal-content">
-
-            <button type="button"
-                class="close-survey"
-                id="closeSurvey"
-                aria-label="Close survey">
-                &times;
-            </button>
-
-            <p class="small-heading">STUDENT SURVEY</p>
-
-            <h2>Scan to Take the Survey</h2>
-
-            <p>
-                Use your phone's camera to scan the QR code
-                and complete the student survey.
-            </p>
-
-            <img
-                src="student-survey-qr.png"
-                alt="QR code for the Savannah State Student Resource Hub student survey"
-                class="survey-qr">
-
-            <p class="survey-instruction">
-                Thank you for helping us improve the Student Resource Hub!
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= LOCATION ================= -->
+    <!-- LOCATION MAP -->
     <section class="location" id="location">
 
         <h1>LOCATION</h1>
@@ -498,6 +383,7 @@
 
         <div class="map">
 
+            <!-- Replace this iframe with the Google Maps embed for Savannah State University when ready. -->
             <iframe
                 src="https://www.google.com/maps?q=Savannah%20State%20University&output=embed"
                 allowfullscreen=""
@@ -509,39 +395,37 @@
     </section>
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- FOOTER -->
     <footer>
 
         <h3>Savannah State University</h3>
 
-        <p>Student Resource Hub</p>
+        <p>
+            Student Resource Hub
+        </p>
 
         <div class="footer-icons">
 
-            <a href="https://www.facebook.com/savannahstate"
-                target="_blank"
-                aria-label="Facebook">
-                <i class="fa fa-facebook"></i>
-            </a>
+    <!-- Facebook -->
+<a href="https://www.facebook.com/savannahstate" target="_blank" aria-label="Facebook">
+        <i class="fa fa-facebook"></i>
+    </a>
 
-            <a href="https://x.com/savannahstate"
-                target="_blank"
-                aria-label="X">
-                <i class="fa fa-twitter"></i>
-            </a>
+    <!-- X / Twitter -->
+    <a href="https://x.com/savannahstate" target="_blank" aria-label="X">
+        <i class="fa fa-twitter"></i>
+    </a>
 
-            <a href="https://www.instagram.com/savannahstate/"
-                target="_blank"
-                aria-label="Instagram">
-                <i class="fa fa-instagram"></i>
-            </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/savannahstate/" target="_blank" aria-label="Instagram">
+        <i class="fa fa-instagram"></i>
+    </a>
 
-            <a href="https://www.linkedin.com/school/savannah-state-university/"
-                target="_blank"
-                aria-label="LinkedIn">
-                <i class="fa fa-linkedin"></i>
-            </a>
-
+    <!-- LinkedIn -->
+   <a href="https://www.linkedin.com/school/savannah-state-university/" target="_blank" aria-label="LinkedIn">
+        <i class="fa fa-linkedin"></i>
+    </a>
+</div>
         </div>
 
         <p>
@@ -550,9 +434,5 @@
 
     </footer>
 
-
-    <script src="script.js"></script>
-
 </body>
-
 </html>
