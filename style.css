@@ -1,14 +1,12 @@
-:root {
-    --ssu-blue: #002855;
-    --ssu-orange: #EE7624;
-    --light-gray: #f5f5f5;
-    --dark-gray: #333;
-    --white: #ffffff;
-}
+
+/* =====================================
+   GLOBAL STYLES
+===================================== */
 
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
@@ -17,73 +15,81 @@ html {
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    color: var(--dark-gray);
-    background: var(--white);
+    background: #ffffff;
+    color: #333;
+    overflow-x: hidden;
 }
 
-section {
-    width: 100%;
+:root {
+    --ssu-blue: #002855;
+    --ssu-orange: #EE7624;
+    --light-gray: #f5f5f5;
 }
 
-h1 {
-    font-size: 2.3rem;
-    color: var(--ssu-blue);
-    margin-bottom: 15px;
-}
-
-p {
-    line-height: 1.7;
-}
-
-
-/* =========================
+/* =====================================
    HEADER / HERO
-========================= */
+===================================== */
 
 .header {
     min-height: 100vh;
     width: 100%;
     background-image:
-        linear-gradient(rgba(0, 40, 85, 0.68), rgba(0, 40, 85, 0.68)),
-        url("capstoneimages/Image 12.jpg");
+        linear-gradient(
+            rgba(0, 40, 85, 0.65),
+            rgba(0, 40, 85, 0.65)
+        ),
+        url("capstoneimages/Image 13.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
 }
 
-
-/* =========================
-   NAVIGATION
-========================= */
-
 nav {
-    width: 100%;
-    padding: 25px 6%;
+    display: flex;
+    padding: 2% 6%;
+    justify-content: flex-end;
+    align-items: center;
     position: relative;
-    z-index: 1000;
+    z-index: 30;
 }
 
+/* =====================================
+   HAMBURGER MENU
+   Preserves your JavaScript IDs
+===================================== */
+
 .menu-icon {
-    background: none;
+    display: block;
+    background: transparent;
     border: none;
     color: white;
     font-size: 28px;
     cursor: pointer;
-    padding: 5px;
+    position: relative;
+    z-index: 31;
+}
+
+.close-icon {
+    display: block;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    margin-bottom: 30px;
 }
 
 .side-menu {
     position: fixed;
     top: 0;
     right: -320px;
-    width: 300px;
+    width: 280px;
     height: 100vh;
     background: var(--ssu-blue);
-    padding: 80px 35px 30px;
-    z-index: 2000;
-    transition: right 0.35s ease;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    z-index: 40;
+    transition: right 0.4s ease;
+    overflow-y: auto;
 }
 
 .side-menu.active {
@@ -94,41 +100,33 @@ nav {
     list-style: none;
 }
 
-.side-menu li {
-    margin: 25px 0;
+.side-menu ul li {
+    list-style: none;
+    margin-bottom: 8px;
 }
 
-.side-menu a {
+.side-menu ul li a {
+    display: block;
     color: white;
     text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
+    padding: 13px 5px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
     transition: 0.3s;
 }
 
-.side-menu a:hover {
+.side-menu ul li a:hover {
     color: var(--ssu-orange);
-}
-
-.close-icon {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
 }
 
 .menu-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     opacity: 0;
     visibility: hidden;
+    z-index: 35;
     transition: 0.3s;
-    z-index: 1500;
 }
 
 .menu-overlay.active {
@@ -136,14 +134,12 @@ nav {
     visibility: visible;
 }
 
-
-/* =========================
+/* =====================================
    HERO TEXT
-========================= */
+===================================== */
 
 .text-box {
     width: 90%;
-    max-width: 850px;
     color: white;
     position: absolute;
     top: 50%;
@@ -152,82 +148,96 @@ nav {
     text-align: center;
 }
 
-.text-box .small-heading {
-    color: var(--ssu-orange);
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
 .text-box h1 {
-    color: white;
-    font-size: 4rem;
-    margin-bottom: 5px;
+    font-size: 55px;
+    font-weight: 600;
 }
 
-.text-box > p:not(.small-heading) {
-    font-size: 1.05rem;
-    max-width: 650px;
-    margin: 15px auto 30px;
+.text-box h2 {
+    font-size: 34px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.text-box p {
+    margin: 15px 0 35px;
+    font-size: 15px;
+    color: white;
+    line-height: 1.7;
+}
+
+.text-box .small-heading {
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    margin-bottom: 12px;
 }
 
 .hero-btn {
     display: inline-block;
-    padding: 13px 30px;
-    border: 2px solid white;
-    color: white;
     text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 34px;
+    font-size: 13px;
     background: transparent;
-    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 .hero-btn:hover {
-    background: var(--ssu-orange);
     border-color: var(--ssu-orange);
+    background: var(--ssu-orange);
 }
 
-
-/* =========================
-   SEARCH
-========================= */
+/* =====================================
+   SEARCH SECTION
+===================================== */
 
 .search-section {
-    padding: 80px 8%;
+    width: 80%;
+    margin: auto;
     text-align: center;
-    background: var(--light-gray);
+    padding: 80px 0 50px;
+}
+
+.search-section h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+}
+
+.search-section > p {
+    color: #777;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 10px;
 }
 
 .search-box {
+    width: 80%;
     max-width: 700px;
-    margin: 30px auto 10px;
+    margin: 30px auto 0;
     display: flex;
 }
 
 .search-box input {
     flex: 1;
-    padding: 16px;
+    min-width: 0;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-right: none;
-    font-family: inherit;
-    font-size: 1rem;
     outline: none;
-}
-
-.search-box input:focus {
-    border-color: var(--ssu-orange);
+    font-size: 14px;
 }
 
 .search-box button {
-    padding: 0 25px;
+    padding: 0 28px;
     border: none;
     background: var(--ssu-blue);
     color: white;
-    font-family: inherit;
-    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 13px;
+    transition: 0.4s;
 }
 
 .search-box button:hover {
@@ -235,117 +245,218 @@ nav {
 }
 
 .search-message {
-    min-height: 25px;
+    font-size: 13px;
     color: var(--ssu-blue);
-    font-weight: 500;
+    margin-top: 15px;
 }
 
+/* =====================================
+   RESOURCE SECTIONS
+===================================== */
 
-/* =========================
-   RESOURCES
-========================= */
-
-.resources {
-    padding: 80px 6%;
+.resources,
+.additional-resources {
+    width: 80%;
+    margin: auto;
     text-align: center;
+    padding: 60px 0 50px;
+}
+
+.resources h1,
+.additional-resources h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
 }
 
 .resources > p,
-.additional-resources > p,
-.location > p {
-    margin-bottom: 35px;
-}
-
-.resource-category {
-    margin-bottom: 65px;
-}
-
-.resource-category.hidden {
-    display: none;
+.additional-resources > p {
+    color: #777;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 10px;
 }
 
 .category-title {
-    color: var(--ssu-orange);
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
+    color: var(--ssu-blue);
+    font-size: 23px;
+    font-weight: 600;
+    margin-top: 45px;
 }
 
+/* =====================================
+   RESOURCE ROWS
+===================================== */
+
 .row {
+    margin-top: 5%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 25px;
-    margin-bottom: 30px;
 }
+
+/* =====================================
+   MAIN RESOURCE IMAGE CARDS
+===================================== */
 
 .resource-col {
     flex: 1;
-    max-width: 420px;
-    min-height: 390px;
+    flex-basis: 31%;
+    height: 300px;
+    border-radius: 10px;
+    margin-bottom: 5%;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
     cursor: pointer;
 }
 
 .resource-col img {
     width: 100%;
     height: 100%;
-    min-height: 390px;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
-}
-
-.resource-col:hover img {
-    transform: scale(1.08);
+    transition: 0.5s;
 }
 
 .resource-layer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        rgba(0, 40, 85, 0.25),
-        rgba(0, 40, 85, 0.92)
-    );
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    text-align: left;
-    transition: 0.4s;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
 }
 
-.resource-col:hover .resource-layer {
-    background: linear-gradient(
-        rgba(0, 40, 85, 0.4),
-        rgba(0, 40, 85, 0.97)
-    );
+.resource-layer:hover {
+    background: rgba(0, 40, 85, 0.82);
 }
 
 .resource-text {
-    color: white;
     width: 100%;
+    position: absolute;
+    bottom: -150px;
+    left: 0;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    transition: 0.5s;
 }
 
 .resource-text h3 {
-    font-size: 1.25rem;
+    font-size: 21px;
+    font-weight: 500;
     margin-bottom: 12px;
 }
 
 .resource-text p {
-    font-size: 0.9rem;
-    margin-bottom: 18px;
+    font-size: 12px;
+    line-height: 22px;
+    color: white;
+    margin-bottom: 15px;
 }
+
+.resource-col:hover .resource-text {
+    bottom: 8%;
+}
+
+.resource-col:hover img {
+    transform: scale(1.05);
+}
+
+/* =====================================
+   ADDITIONAL RESOURCE IMAGE CARDS
+===================================== */
+
+.campus-col {
+    flex: 1;
+    flex-basis: 32%;
+    height: 280px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.campus-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s;
+}
+
+.layer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    text-align: center;
+}
+
+.layer:hover {
+    background: rgba(238, 118, 36, 0.85);
+}
+
+.layer h3 {
+    width: 100%;
+    font-weight: 500;
+    color: white;
+    font-size: 23px;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.layer p {
+    width: 85%;
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+    bottom: -130px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.layer:hover h3 {
+    bottom: 55%;
+    opacity: 1;
+}
+
+.layer:hover p {
+    bottom: 34%;
+    opacity: 1;
+}
+
+.campus-col:hover img {
+    transform: scale(1.05);
+}
+
+/* =====================================
+   RESOURCE BUTTONS
+===================================== */
 
 .card-btn {
     display: inline-block;
     text-decoration: none;
     color: white;
     border: 1px solid white;
-    padding: 9px 16px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    transition: 0.3s;
+    padding: 9px 18px;
+    font-size: 11px;
+    margin-top: 8px;
+    background: transparent;
+    transition: 0.4s;
+    position: relative;
+    z-index: 2;
 }
 
 .card-btn:hover {
@@ -353,179 +464,153 @@ nav {
     border-color: var(--ssu-orange);
 }
 
+/* =====================================
+   HIDDEN SEARCH RESULTS
+===================================== */
 
-/* =========================
-   ADDITIONAL RESOURCES
-========================= */
-
-.additional-resources {
-    padding: 80px 6%;
-    background: var(--light-gray);
-    text-align: center;
+.hidden {
+    display: none !important;
 }
 
-.campus-col {
-    flex: 1;
-    max-width: 420px;
-    min-height: 350px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.campus-col img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.campus-col:hover img {
-    transform: scale(1.08);
-}
-
-.campus-col .layer {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        rgba(0, 40, 85, 0.25),
-        rgba(0, 40, 85, 0.92)
-    );
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    text-align: left;
-    padding: 30px;
-}
-
-.layer h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-}
-
-.layer p {
-    font-size: 0.9rem;
-    margin-bottom: 18px;
-}
-
-
-/* =========================
-   HIDDEN SEARCH ITEMS
-========================= */
-
-.resource-item.hidden {
-    display: none;
-}
-
-
-/* =========================
-   SURVEY
-========================= */
+/* =====================================
+   STUDENT SURVEY
+===================================== */
 
 .survey {
-    background: var(--ssu-blue);
-    color: white;
-    padding: 90px 8%;
+    width: 80%;
+    margin: 40px auto 80px;
+    padding: 70px 20px;
     text-align: center;
+    background: var(--ssu-blue);
 }
 
 .survey .small-heading {
     color: var(--ssu-orange);
-    font-weight: 700;
+    font-size: 13px;
     letter-spacing: 2px;
+    margin-bottom: 12px;
 }
 
 .survey h1 {
     color: white;
+    font-size: 34px;
+    font-weight: 600;
 }
 
-.survey > p:not(.small-heading) {
-    max-width: 700px;
-    margin: 0 auto 30px;
+.survey p {
+    max-width: 650px;
+    margin: 15px auto 30px;
+    color: white;
+    font-size: 14px;
+    line-height: 22px;
 }
 
+.survey-btn {
+    margin-top: 5px;
+}
 
-/* =========================
-   SURVEY MODAL
-========================= */
+/* =====================================
+   SURVEY QR MODAL
+===================================== */
 
 .survey-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
     align-items: center;
+    justify-content: center;
     padding: 20px;
-    z-index: 5000;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
 }
 
 .survey-modal.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
 }
 
 .survey-modal-content {
-    position: relative;
+    background: white;
     width: 100%;
     max-width: 450px;
     padding: 40px 30px;
-    background: white;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-}
-
-.survey-modal-content h2 {
-    color: var(--ssu-blue);
-    margin-bottom: 10px;
-}
-
-.survey-modal-content p {
-    margin-bottom: 10px;
-}
-
-.survey-qr {
-    width: 260px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 15px auto 20px;
+    position: relative;
 }
 
 .close-survey {
     position: absolute;
     top: 10px;
-    right: 15px;
+    right: 18px;
     border: none;
-    background: none;
-    color: #555;
-    font-size: 2rem;
+    background: transparent;
+    font-size: 30px;
+    color: var(--ssu-blue);
     cursor: pointer;
 }
 
-.survey-instruction {
-    color: var(--ssu-blue);
-    font-weight: 500;
+.survey-modal-content .small-heading {
+    color: var(--ssu-orange);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
+.survey-modal-content h2 {
+    color: var(--ssu-blue);
+    font-size: 23px;
+    margin-bottom: 12px;
+}
 
-/* =========================
-   LOCATION
-========================= */
+.survey-modal-content p {
+    color: #666;
+    font-size: 13px;
+    line-height: 21px;
+    margin-bottom: 20px;
+}
+
+.survey-qr {
+    display: block;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+}
+
+.survey-modal-content .survey-instruction {
+    margin-bottom: 0;
+}
+
+/* =====================================
+   LOCATION AND MAP
+===================================== */
 
 .location {
-    padding: 80px 6%;
+    width: 80%;
+    margin: auto;
     text-align: center;
+    padding: 20px 0 80px;
+}
+
+.location h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+}
+
+.location > p {
+    color: #777;
+    font-size: 14px;
+    padding: 10px;
 }
 
 .map {
-    max-width: 1000px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 8px;
+    width: 100%;
+    margin-top: 30px;
 }
 
 .map iframe {
@@ -534,25 +619,27 @@ nav {
     border: 0;
 }
 
-
-/* =========================
+/* =====================================
    FOOTER
-========================= */
+===================================== */
 
 footer {
-    background: #001b3a;
-    color: white;
+    width: 100%;
     text-align: center;
-    padding: 45px 20px;
+    padding: 50px 20px;
+    background: var(--ssu-blue);
+    color: white;
 }
 
 footer h3 {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 footer p {
-    font-size: 0.85rem;
-    margin: 5px 0;
+    font-size: 12px;
+    margin: 8px 0;
+    color: #ddd;
 }
 
 .footer-icons {
@@ -560,98 +647,166 @@ footer p {
 }
 
 .footer-icons a {
-    color: white;
-    font-size: 20px;
+    color: var(--ssu-orange);
+    text-decoration: none;
+}
+
+.footer-icons i {
     margin: 0 10px;
+    cursor: pointer;
+    font-size: 18px;
     transition: 0.3s;
 }
 
-.footer-icons a:hover {
-    color: var(--ssu-orange);
+.footer-icons i:hover {
+    color: white;
 }
 
+/* =====================================
+   MOBILE RESPONSIVE DESIGN
+===================================== */
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .text-box h1 {
-        font-size: 3rem;
-    }
-
-    .row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .resource-col,
-    .campus-col {
-        width: 100%;
-        max-width: 600px;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    h1 {
-        font-size: 1.8rem;
-    }
+@media (max-width: 700px) {
 
     .header {
         min-height: 90vh;
     }
 
-    .text-box {
-        width: 88%;
+    nav {
+        padding: 5% 6%;
     }
 
     .text-box h1 {
-        font-size: 2.2rem;
+        font-size: 30px;
     }
 
-    .text-box > p:not(.small-heading) {
-        font-size: 0.9rem;
+    .text-box p {
+        font-size: 13px;
+        margin-bottom: 25px;
     }
 
-    .search-section,
-    .resources,
-    .additional-resources,
-    .location {
-        padding: 60px 5%;
+    .text-box .small-heading {
+        font-size: 11px;
+    }
+
+    .search-section {
+        width: 90%;
+        padding-top: 60px;
+    }
+
+    .search-section h1,
+    .resources h1,
+    .additional-resources h1,
+    .location h1 {
+        font-size: 28px;
     }
 
     .search-box {
-        flex-direction: column;
+        width: 100%;
     }
 
     .search-box input {
-        border-right: 1px solid #ccc;
-        border-bottom: none;
+        width: 100%;
+        padding: 13px 10px;
     }
 
     .search-box button {
-        padding: 14px;
+        padding: 0 18px;
     }
 
-    .resource-col,
-    .resource-col img {
-        min-height: 350px;
+    .resources,
+    .additional-resources,
+    .location {
+        width: 90%;
     }
 
-    .side-menu {
-        width: 280px;
+    .category-title {
+        font-size: 20px;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .resource-col {
+        width: 100%;
+        flex-basis: auto;
+        height: 300px;
+        margin-bottom: 15px;
+    }
+
+    .resource-text {
+        bottom: -160px;
+    }
+
+    .resource-col:hover .resource-text {
+        bottom: 8%;
+    }
+
+    .campus-col {
+        width: 100%;
+        flex-basis: auto;
+        height: 280px;
+        margin-bottom: 15px;
     }
 
     .survey {
-        padding: 70px 6%;
+        width: 90%;
+        padding: 55px 20px;
+    }
+
+    .survey h1 {
+        font-size: 27px;
+    }
+
+    .survey p {
+        width: 100%;
+        font-size: 13px;
+    }
+
+    .survey-modal-content {
+        padding: 40px 20px 25px;
+    }
+
+    .survey-qr {
+        width: 180px;
     }
 
     .map iframe {
-        height: 320px;
+        height: 350px;
     }
 
+    footer {
+        padding: 40px 15px;
+    }
+}
+
+/* =====================================
+   DESKTOP CARD HOVER FALLBACK
+===================================== */
+
+@media (hover: none) {
+
+    .resource-layer {
+        background: rgba(0, 40, 85, 0.65);
+    }
+
+    .resource-text {
+        bottom: 8%;
+    }
+
+    .layer {
+        background: rgba(238, 118, 36, 0.78);
+    }
+
+    .layer h3 {
+        bottom: 55%;
+        opacity: 1;
+    }
+
+    .layer p {
+        bottom: 34%;
+        opacity: 1;
+    }
 }
