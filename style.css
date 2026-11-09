@@ -1,23 +1,16 @@
 
-/* =====================================
+/* ================================
    GLOBAL STYLES
-===================================== */
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-}
-
-html {
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
-}
-
-body {
-    background: #ffffff;
-    color: #333;
-    overflow-x: hidden;
 }
 
 :root {
@@ -26,70 +19,68 @@ body {
     --light-gray: #f5f5f5;
 }
 
-/* =====================================
+body {
+    background: white;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ================================
    HEADER / HERO
-===================================== */
+================================ */
 
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image:
-        linear-gradient(
-            rgba(0, 40, 85, 0.65),
-            rgba(0, 40, 85, 0.65)
-        ),
-        url("capstoneimages/Image 13.jpg");
+    background-image: linear-gradient(
+        rgba(0, 40, 85, 0.75),
+        rgba(0, 40, 85, 0.75)
+    ),
+    url("capstoneimages/Image 13.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
 }
 
+/* ================================
+   SIDE NAVIGATION MENU
+================================ */
+
 nav {
     display: flex;
-    padding: 2% 6%;
     justify-content: flex-end;
     align-items: center;
+    padding: 25px 6%;
     position: relative;
-    z-index: 30;
+    z-index: 100;
 }
-
-/* =====================================
-   HAMBURGER MENU
-   Preserves your JavaScript IDs
-===================================== */
 
 .menu-icon {
-    display: block;
-    background: transparent;
+    background: none;
     border: none;
     color: white;
-    font-size: 28px;
+    font-size: 30px;
     cursor: pointer;
-    position: relative;
-    z-index: 31;
-}
-
-.close-icon {
-    display: block;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 25px;
-    cursor: pointer;
-    margin-bottom: 30px;
+    z-index: 102;
 }
 
 .side-menu {
     position: fixed;
     top: 0;
-    right: -320px;
+    right: -300px;
     width: 280px;
     height: 100vh;
     background: var(--ssu-blue);
-    padding: 30px;
-    z-index: 40;
-    transition: right 0.4s ease;
-    overflow-y: auto;
+    padding: 70px 30px 30px;
+    z-index: 101;
+    transition: 0.4s ease;
 }
 
 .side-menu.active {
@@ -101,17 +92,12 @@ nav {
 }
 
 .side-menu ul li {
-    list-style: none;
-    margin-bottom: 8px;
+    padding: 15px 0;
 }
 
 .side-menu ul li a {
-    display: block;
     color: white;
-    text-decoration: none;
-    padding: 13px 5px;
-    font-size: 14px;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
+    font-size: 16px;
     transition: 0.3s;
 }
 
@@ -119,14 +105,25 @@ nav {
     color: var(--ssu-orange);
 }
 
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
 .menu-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
-    z-index: 35;
     transition: 0.3s;
+    z-index: 99;
 }
 
 .menu-overlay.active {
@@ -134,9 +131,9 @@ nav {
     visibility: visible;
 }
 
-/* =====================================
+/* ================================
    HERO TEXT
-===================================== */
+================================ */
 
 .text-box {
     width: 90%;
@@ -148,166 +145,136 @@ nav {
     text-align: center;
 }
 
-.text-box h1 {
-    font-size: 55px;
+.small-heading {
+    color: var(--ssu-orange);
+    font-size: 18px;
     font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
 }
 
-.text-box h2 {
-    font-size: 34px;
-    font-weight: 400;
-    margin-top: 5px;
+.text-box h1 {
+    font-size: 55px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .text-box p {
-    margin: 15px 0 35px;
-    font-size: 15px;
-    color: white;
-    line-height: 1.7;
-}
-
-.text-box .small-heading {
-    font-size: 14px;
-    letter-spacing: 3px;
-    font-weight: 500;
-    margin-bottom: 12px;
+    font-size: 16px;
+    margin: 10px 0 30px;
 }
 
 .hero-btn {
     display: inline-block;
-    text-decoration: none;
     color: white;
-    border: 1px solid white;
-    padding: 12px 34px;
-    font-size: 13px;
+    border: 2px solid white;
+    padding: 12px 35px;
+    font-size: 14px;
     background: transparent;
-    cursor: pointer;
     transition: 0.4s;
 }
 
 .hero-btn:hover {
-    border-color: var(--ssu-orange);
     background: var(--ssu-orange);
+    border-color: var(--ssu-orange);
 }
 
-/* =====================================
+/* ================================
    SEARCH SECTION
-===================================== */
+================================ */
 
 .search-section {
-    width: 80%;
-    margin: auto;
+    width: 100%;
+    padding: 60px 8%;
     text-align: center;
-    padding: 80px 0 50px;
+    background: white;
 }
 
-.search-section h1 {
-    font-size: 36px;
-    font-weight: 600;
-    color: #333;
+.search-section h2 {
+    color: var(--ssu-blue);
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
-.search-section > p {
-    color: #777;
-    font-size: 14px;
-    line-height: 22px;
-    padding: 10px;
+.search-section p {
+    color: #666;
+    margin-bottom: 25px;
 }
 
-.search-box {
-    width: 80%;
-    max-width: 700px;
-    margin: 30px auto 0;
+.search-container {
     display: flex;
+    justify-content: center;
+    max-width: 650px;
+    margin: auto;
 }
 
-.search-box input {
-    flex: 1;
-    min-width: 0;
-    padding: 15px;
+.search-container input {
+    width: 100%;
+    padding: 14px 18px;
     border: 1px solid #ccc;
     outline: none;
     font-size: 14px;
+    border-radius: 5px 0 0 5px;
 }
 
-.search-box button {
-    padding: 0 28px;
+.search-container button {
+    padding: 14px 25px;
     border: none;
     background: var(--ssu-blue);
     color: white;
-    cursor: pointer;
-    font-size: 13px;
-    transition: 0.4s;
+    font-size: 15px;
+    border-radius: 0 5px 5px 0;
+    transition: 0.3s;
 }
 
-.search-box button:hover {
+.search-container button:hover {
     background: var(--ssu-orange);
 }
 
 .search-message {
-    font-size: 13px;
-    color: var(--ssu-blue);
     margin-top: 15px;
+    color: var(--ssu-blue);
 }
 
-/* =====================================
+/* ================================
    RESOURCE SECTIONS
-===================================== */
+================================ */
 
 .resources,
 .additional-resources {
-    width: 80%;
+    width: 85%;
     margin: auto;
-    text-align: center;
-    padding: 60px 0 50px;
-}
-
-.resources h1,
-.additional-resources h1 {
-    font-size: 36px;
-    font-weight: 600;
-    color: #333;
-}
-
-.resources > p,
-.additional-resources > p {
-    color: #777;
-    font-size: 14px;
-    line-height: 22px;
-    padding: 10px;
+    padding: 60px 0;
 }
 
 .category-title {
     color: var(--ssu-blue);
-    font-size: 23px;
+    font-size: 28px;
     font-weight: 600;
-    margin-top: 45px;
+    margin: 35px 0 20px;
+    text-align: center;
 }
-
-/* =====================================
-   RESOURCE ROWS
-===================================== */
 
 .row {
-    margin-top: 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 25px;
+    flex-wrap: wrap;
 }
 
-/* =====================================
-   MAIN RESOURCE IMAGE CARDS
-===================================== */
+/* ================================
+   MAIN RESOURCE CARDS
+================================ */
 
 .resource-col {
-    flex: 1;
-    flex-basis: 31%;
+    flex: 1 1 280px;
+    max-width: 350px;
     height: 300px;
     border-radius: 10px;
-    margin-bottom: 5%;
-    position: relative;
     overflow: hidden;
-    cursor: pointer;
+    position: relative;
+    margin-bottom: 25px;
+    background: var(--light-gray);
 }
 
 .resource-col img {
@@ -315,67 +282,59 @@ nav {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: 0.5s;
 }
 
 .resource-layer {
-    background: transparent;
-    height: 100%;
-    width: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
+    background: transparent;
     transition: 0.5s;
 }
 
 .resource-layer:hover {
-    background: rgba(0, 40, 85, 0.82);
+    background: rgba(0, 40, 85, 0.85);
 }
 
 .resource-text {
     width: 100%;
     position: absolute;
-    bottom: -150px;
+    bottom: 0;
     left: 0;
     padding: 20px;
-    color: white;
     text-align: center;
+    color: white;
+    opacity: 0;
     transition: 0.5s;
+}
+
+.resource-layer:hover .resource-text {
+    bottom: 8%;
+    opacity: 1;
 }
 
 .resource-text h3 {
     font-size: 21px;
-    font-weight: 500;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .resource-text p {
-    font-size: 12px;
-    line-height: 22px;
-    color: white;
+    font-size: 13px;
     margin-bottom: 15px;
 }
 
-.resource-col:hover .resource-text {
-    bottom: 8%;
-}
-
-.resource-col:hover img {
-    transform: scale(1.05);
-}
-
-/* =====================================
-   ADDITIONAL RESOURCE IMAGE CARDS
-===================================== */
+/* ================================
+   ADDITIONAL RESOURCE CARDS
+================================ */
 
 .campus-col {
-    flex: 1;
-    flex-basis: 32%;
-    height: 280px;
+    flex: 1 1 280px;
+    max-width: 350px;
+    height: 250px;
     border-radius: 10px;
-    margin-bottom: 30px;
-    position: relative;
     overflow: hidden;
+    position: relative;
+    margin-bottom: 25px;
+    background: var(--ssu-blue);
 }
 
 .campus-col img {
@@ -383,7 +342,6 @@ nav {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: 0.5s;
 }
 
 .layer {
@@ -391,10 +349,8 @@ nav {
     height: 100%;
     width: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     transition: 0.5s;
-    text-align: center;
 }
 
 .layer:hover {
@@ -405,24 +361,12 @@ nav {
     width: 100%;
     font-weight: 500;
     color: white;
-    font-size: 23px;
-    bottom: -80px;
+    font-size: 22px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.layer p {
-    width: 85%;
-    color: white;
-    font-size: 12px;
-    line-height: 20px;
-    bottom: -130px;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
+    text-align: center;
     opacity: 0;
     transition: 0.5s;
 }
@@ -432,286 +376,260 @@ nav {
     opacity: 1;
 }
 
+.layer p {
+    width: 85%;
+    color: white;
+    font-size: 13px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
 .layer:hover p {
-    bottom: 34%;
+    bottom: 30%;
     opacity: 1;
 }
 
-.campus-col:hover img {
-    transform: scale(1.05);
-}
-
-/* =====================================
+/* ================================
    RESOURCE BUTTONS
-===================================== */
+================================ */
 
 .card-btn {
     display: inline-block;
-    text-decoration: none;
+    padding: 8px 18px;
     color: white;
+    background: var(--ssu-orange);
     border: 1px solid white;
-    padding: 9px 18px;
-    font-size: 11px;
-    margin-top: 8px;
-    background: transparent;
-    transition: 0.4s;
-    position: relative;
-    z-index: 2;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: 0.3s;
 }
 
 .card-btn:hover {
-    background: var(--ssu-orange);
-    border-color: var(--ssu-orange);
+    background: white;
+    color: var(--ssu-blue);
 }
 
-/* =====================================
-   HIDDEN SEARCH RESULTS
-===================================== */
+/* Buttons on additional resource cards */
+
+.layer .card-btn {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.layer:hover .card-btn {
+    opacity: 1;
+}
+
+/* Hide resources that do not match search */
 
 .hidden {
     display: none !important;
 }
 
-/* =====================================
-   STUDENT SURVEY
-===================================== */
+/* ================================
+   SURVEY SECTION
+================================ */
 
 .survey {
-    width: 80%;
-    margin: 40px auto 80px;
-    padding: 70px 20px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 65px 10%;
     text-align: center;
     background: var(--ssu-blue);
-}
-
-.survey .small-heading {
-    color: var(--ssu-orange);
-    font-size: 13px;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-}
-
-.survey h1 {
     color: white;
-    font-size: 34px;
-    font-weight: 600;
+}
+
+.survey h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
 }
 
 .survey p {
-    max-width: 650px;
-    margin: 15px auto 30px;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.survey button {
+    padding: 12px 30px;
+    border: 2px solid white;
+    background: transparent;
     color: white;
     font-size: 14px;
-    line-height: 22px;
-}
-
-.survey-btn {
-    margin-top: 5px;
-}
-
-/* =====================================
-   SURVEY QR MODAL
-===================================== */
-
-.survey-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
     transition: 0.3s;
 }
 
+.survey button:hover {
+    background: var(--ssu-orange);
+    border-color: var(--ssu-orange);
+}
+
+/* ================================
+   SURVEY MODAL
+================================ */
+
+.survey-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 .survey-modal.active {
-    opacity: 1;
-    visibility: visible;
+    display: flex;
 }
 
 .survey-modal-content {
     background: white;
-    width: 100%;
+    width: 90%;
     max-width: 450px;
-    padding: 40px 30px;
+    padding: 35px;
     border-radius: 10px;
     text-align: center;
     position: relative;
 }
 
-.close-survey {
-    position: absolute;
-    top: 10px;
-    right: 18px;
-    border: none;
-    background: transparent;
-    font-size: 30px;
-    color: var(--ssu-blue);
-    cursor: pointer;
-}
-
-.survey-modal-content .small-heading {
-    color: var(--ssu-orange);
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
 .survey-modal-content h2 {
     color: var(--ssu-blue);
-    font-size: 23px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .survey-modal-content p {
-    color: #666;
-    font-size: 13px;
-    line-height: 21px;
+    color: #555;
     margin-bottom: 20px;
 }
 
 .survey-qr {
-    display: block;
     width: 200px;
     max-width: 100%;
     height: auto;
-    margin: 20px auto;
+    margin: 15px auto;
+    display: block;
 }
 
-.survey-modal-content .survey-instruction {
-    margin-bottom: 0;
+#closeSurvey {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--ssu-blue);
+    font-size: 27px;
 }
 
-/* =====================================
-   LOCATION AND MAP
-===================================== */
+/* ================================
+   LOCATION / MAP
+================================ */
 
 .location {
-    width: 80%;
+    width: 85%;
     margin: auto;
+    padding: 60px 0;
     text-align: center;
-    padding: 20px 0 80px;
 }
 
-.location h1 {
-    font-size: 36px;
-    font-weight: 600;
-    color: #333;
-}
-
-.location > p {
-    color: #777;
-    font-size: 14px;
-    padding: 10px;
+.location h2 {
+    color: var(--ssu-blue);
+    font-size: 30px;
+    margin-bottom: 25px;
 }
 
 .map {
     width: 100%;
-    margin-top: 30px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .map iframe {
     width: 100%;
-    height: 400px;
+    height: 100%;
     border: 0;
 }
 
-/* =====================================
+/* ================================
    FOOTER
-===================================== */
+================================ */
 
 footer {
     width: 100%;
-    text-align: center;
-    padding: 50px 20px;
     background: var(--ssu-blue);
     color: white;
-}
-
-footer h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
+    text-align: center;
+    padding: 30px 15px;
 }
 
 footer p {
-    font-size: 12px;
-    margin: 8px 0;
-    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .footer-icons {
-    margin: 20px 0;
+    margin-top: 15px;
 }
 
 .footer-icons a {
-    color: var(--ssu-orange);
-    text-decoration: none;
-}
-
-.footer-icons i {
+    color: white;
+    font-size: 20px;
     margin: 0 10px;
-    cursor: pointer;
-    font-size: 18px;
     transition: 0.3s;
 }
 
-.footer-icons i:hover {
-    color: white;
+.footer-icons a:hover {
+    color: var(--ssu-orange);
 }
 
-/* =====================================
-   MOBILE RESPONSIVE DESIGN
-===================================== */
+/* ================================
+   MOBILE RESPONSIVENESS
+================================ */
 
 @media (max-width: 700px) {
 
     .header {
-        min-height: 90vh;
-    }
-
-    nav {
-        padding: 5% 6%;
+        min-height: 85vh;
     }
 
     .text-box h1 {
-        font-size: 30px;
+        font-size: 34px;
     }
 
     .text-box p {
-        font-size: 13px;
-        margin-bottom: 25px;
+        font-size: 14px;
     }
 
-    .text-box .small-heading {
-        font-size: 11px;
+    .small-heading {
+        font-size: 14px;
     }
 
     .search-section {
-        width: 90%;
-        padding-top: 60px;
+        padding: 45px 5%;
     }
 
-    .search-section h1,
-    .resources h1,
-    .additional-resources h1,
-    .location h1 {
-        font-size: 28px;
+    .search-section h2 {
+        font-size: 24px;
     }
 
-    .search-box {
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-container input,
+    .search-container button {
         width: 100%;
-    }
-
-    .search-box input {
-        width: 100%;
-        padding: 13px 10px;
-    }
-
-    .search-box button {
-        padding: 0 18px;
+        border-radius: 5px;
     }
 
     .resources,
@@ -720,84 +638,24 @@ footer p {
         width: 90%;
     }
 
-    .category-title {
-        font-size: 20px;
-    }
-
-    .row {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .resource-col {
-        width: 100%;
-        flex-basis: auto;
-        height: 300px;
-        margin-bottom: 15px;
+    .resource-col,
+    .campus-col {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 
     .resource-text {
-        bottom: -160px;
-    }
-
-    .resource-col:hover .resource-text {
-        bottom: 8%;
-    }
-
-    .campus-col {
-        width: 100%;
-        flex-basis: auto;
-        height: 280px;
-        margin-bottom: 15px;
-    }
-
-    .survey {
-        width: 90%;
-        padding: 55px 20px;
-    }
-
-    .survey h1 {
-        font-size: 27px;
-    }
-
-    .survey p {
-        width: 100%;
-        font-size: 13px;
-    }
-
-    .survey-modal-content {
-        padding: 40px 20px 25px;
-    }
-
-    .survey-qr {
-        width: 180px;
-    }
-
-    .map iframe {
-        height: 350px;
-    }
-
-    footer {
-        padding: 40px 15px;
-    }
-}
-
-/* =====================================
-   DESKTOP CARD HOVER FALLBACK
-===================================== */
-
-@media (hover: none) {
-
-    .resource-layer {
+        opacity: 1;
+        bottom: 5%;
         background: rgba(0, 40, 85, 0.65);
     }
 
-    .resource-text {
-        bottom: 8%;
+    .resource-layer {
+        background: rgba(0, 40, 85, 0.2);
     }
 
     .layer {
-        background: rgba(238, 118, 36, 0.78);
+        background: rgba(0, 40, 85, 0.3);
     }
 
     .layer h3 {
@@ -806,7 +664,48 @@ footer p {
     }
 
     .layer p {
-        bottom: 34%;
+        bottom: 30%;
+        opacity: 1;
+    }
+
+    .layer .card-btn {
+        opacity: 1;
+    }
+
+    .survey {
+        padding: 45px 6%;
+    }
+
+    .survey h2 {
+        font-size: 24px;
+    }
+
+    .map {
+        height: 300px;
+    }
+}
+
+/* ================================
+   TOUCHSCREEN HOVER SUPPORT
+================================ */
+
+@media (hover: none) {
+    .resource-layer {
+        background: rgba(0, 40, 85, 0.35);
+    }
+
+    .resource-text {
+        opacity: 1;
+        bottom: 5%;
+    }
+
+    .layer {
+        background: rgba(0, 40, 85, 0.3);
+    }
+
+    .layer h3,
+    .layer p,
+    .layer .card-btn {
         opacity: 1;
     }
 }
