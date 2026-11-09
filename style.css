@@ -132,11 +132,12 @@ nav {
 }
 
 /* ================================
-   HERO TEXT
+   HERO TEXT AND BUTTON
 ================================ */
 
 .text-box {
     width: 90%;
+    max-width: 1000px;
     color: white;
     position: absolute;
     top: 50%;
@@ -147,36 +148,70 @@ nav {
 
 .small-heading {
     color: var(--ssu-orange);
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     letter-spacing: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
 }
 
 .text-box h1 {
-    font-size: 55px;
+    font-size: 52px;
     font-weight: 700;
-    margin-bottom: 20px;
+    line-height: 1.2;
+    margin-bottom: 18px;
 }
 
 .text-box p {
-    font-size: 16px;
-    margin: 10px 0 30px;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 auto 30px;
+    max-width: 700px;
 }
 
 .hero-btn {
     display: inline-block;
+    padding: 13px 32px;
     color: white;
     border: 2px solid white;
-    padding: 12px 35px;
-    font-size: 14px;
+    border-radius: 3px;
     background: transparent;
-    transition: 0.4s;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
 }
 
 .hero-btn:hover {
     background: var(--ssu-orange);
     border-color: var(--ssu-orange);
+}
+
+/* MOBILE HERO */
+
+@media (max-width: 700px) {
+    .text-box {
+        width: 90%;
+    }
+
+    .text-box h1 {
+        font-size: 34px;
+    }
+
+    .text-box p {
+        font-size: 13px;
+    }
+
+    .small-heading {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    .hero-btn {
+        padding: 11px 25px;
+        font-size: 12px;
+    }
 }
 
 /* ================================
